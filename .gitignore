@@ -140,10 +140,11 @@ cython_debug/
 # PyPI
 .pypirc
 
-# Large Data & Artifacts (added)
+# Large Data & Artifacts (recommended additions)
 *.csv
 *.tsv
 *.log
 *.json
 catboost_info/
 notebook/data/
+artifact/
