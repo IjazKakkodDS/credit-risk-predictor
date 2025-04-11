@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Exam Performance Indicator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Welcome to the Student Exam Performance Indicator</h1>
+            <p>" Get accurate predictions for student performance based on various factors. "</p>
+        </div>
+    </header>
+    <main>
+        <section class="intro">
+            <h2>About This Tool</h2>
+            <p>This application helps predict a student's performance based on their background and test preparation. This application is a tool designed to predict how well a student might perform in their exams. It works by analyzing information about the student, such as their educational background, family support, and any test preparation they’ve done. Using this data, the application provides insights into their expected performance. The goal is to help educators, parents, and students better understand the factors that impact success and identify areas for improvement. For instance, if the application predicts lower performance due to insufficient test preparation, students can take steps to focus more on studying. The application uses advanced algorithms to analyze patterns from past data and generate predictions. It’s simple to use and provides clear, actionable results that can guide better decision-making. This tool is especially useful for schools or tutoring centers to support students in achieving their full potential.</p>
+        </section>
+        <section class="cta">
+            <h2>Ready to Predict?</h2>
+            <a href="{{ url_for('predict_datapoint') }}" class="btn-primary">Go to Prediction Form</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Student Exam Performance Indicator. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,170 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: rgb(188, 31, 123); */
+    background-color: #FFDB58;
+    background-image: linear-gradient(to top, #fff 20%, #FFDB58 100%);
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    /* max-width: 800px; */
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    color: #4CAF50;
+}
+
+.container p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+.intro p {
+    display: flexbox;
+    justify-content: flex-start;
+    align-items: flex-start;
+    text-align: flex-start;
+    margin: 10px 125px;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    line-height: 1.5; 
+}
+
+.intro h2 {
+    margin-top: 75px;
+    margin-bottom: 10px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    padding: 10px;
+}
+
+/* Form styles */
+.form-label {
+    font-weight: bold;
+}
+
+.mb-3 {
+    margin-bottom: 15px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 10px 0px;
+    margin: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.cta a {
+    display: flexbox;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+}
+
+.cta h2 {
+    margin-top: 50px;
+    margin-bottom: -30px;
+}
+
+.btn-primary {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: white;
+    color: #45a049;
+    padding: 10px 20px;
+    border: 2px solid #000;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 150px; 
+    height: 30px; 
+    text-align: center;
+}
+
+.btn-primary:hover {
+    background-color: #45a049;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-primary2 {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    background-color: white;
+    color: #45a049;
+    padding: 10px 10px;
+    border: 2px solid #000;
+    border-radius: 6px;
+    cursor: pointer;
+    width: 220px; 
+    height: 60px; 
+    text-align: auto;
+    margin: auto;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.btn-primary2:hover {
+    background-color: #45a049;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+/* Spinner Styles */
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none; /* Initially hidden */
+}
+
+.spinner {
+    border: 8px solid #f3f3f3; /* Light gray */
+    border-top: 8px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+    border: none;
+    margin-top: 30px;
+}
+
+#prediction-form {
+    display: flexbox;
+    justify-content: center;
+    margin: 10px 250px;
+}
+
+/* Add the spinning animation */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

@@ -1,0 +1,17 @@
+.ebextensions
+.gitignore
+application.py
+artifact
+catboost_info
+logs
+notebook
+Procfile
+project_structure.txt
+README.md
+requirements.txt
+score_predictor.egg-info
+setup.py
+src
+static
+templates
+venv
