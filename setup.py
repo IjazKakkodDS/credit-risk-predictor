@@ -17,7 +17,7 @@ def get_requirements(file_path:str)->List[str]:
 
 # Metadata Information
 setup( 
-    name = 'score_predictor',
+    name = 'credit_risk_predictor',
     version = '0.0.1',
     author = 'Ijaz Kakkod',
     author_email = 'ijazkakkod@gmail.com',

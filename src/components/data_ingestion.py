@@ -2,12 +2,18 @@
 
 import os
 import sys
+from pathlib import Path
 import pandas as pd
 from dataclasses import dataclass
 from sklearn.model_selection import train_test_split
 
 from src.exception import CustomException
 from src.logger import logging
+
+DATA_PATH = os.environ.get(
+    "CREDIT_RISK_DATA_PATH",
+    str(Path("data") / "lending_club_accepted_loans.csv")
+)
 
 @dataclass
 class DataIngestionConfig:
@@ -22,8 +28,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info("Starting data ingestion")
         try:
-            # Update with your actual CSV path
-            csv_path = r"C:\Users\ijazk\OneDrive\Desktop\ML_AI_Portfolio\credit-risk-predictor-lending-club\notebook\data\lending_club_accepted_loans.csv"
+            csv_path = DATA_PATH
             df = pd.read_csv(csv_path, low_memory=False)
             logging.info(f"Loaded data from {csv_path}, shape={df.shape}")
 

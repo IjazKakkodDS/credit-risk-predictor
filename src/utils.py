@@ -8,7 +8,6 @@ import pandas as pd
 from sklearn.metrics import accuracy_score, f1_score
 from src.logger import logging
 from src.exception import CustomException
-import optuna
 
 def save_object(file_path, obj):
     try:
@@ -34,6 +33,8 @@ def tune_single_model(model_name, model, param_dict,
     Returns a tuple: (model_name, best_test_accuracy, tuned_estimator).
     """
     try:
+        import optuna
+
         def objective(trial):
             logging.info(f"Model {model_name}: Starting trial {trial.number}")
             # Build the parameter dictionary using trial suggestions.
