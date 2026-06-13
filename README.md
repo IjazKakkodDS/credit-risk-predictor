@@ -17,6 +17,30 @@ The project focuses on credit default modelling from LendingClub-style accepted-
 
 The original LendingClub source contains approximately 2.26M accepted-loan records. The public repo excludes raw data and does not yet include a committed full-scale run log. Full-scale benchmarking is a planned next step.
 
+## Senior Review Status
+
+This repo is a modular credit risk modelling pipeline under active hardening. It
+is public-safe after contamination cleanup and now includes evidence
+documentation, validation requirements, a threshold policy, and artifact-gated
+benchmark scaffolds.
+
+It does not yet claim full-scale benchmark execution or production deployment.
+The approximately 2.26M-record figure describes the original source scale only.
+
+## Current Evidence
+
+- [System scope and boundaries](docs/evidence/system_scope.md)
+- [Data scale context](docs/evidence/data_scale_context.md)
+- [Model validation requirements](docs/evidence/model_validation_requirements.md)
+- [Threshold policy](docs/evidence/threshold_policy.md)
+- [Resource profiling plan](docs/evidence/resource_profile.md)
+- A tracked fitted preprocessor at `artifact/preprocessor.pkl`.
+- Tests for repository integrity, transformers, evidence documents, and safe
+  scaffold behavior.
+
+Full-scale execution logs, model evaluation artifacts, and resource
+measurements are planned but are not yet committed.
+
 ## Current System Scope
 
 - Modular ingestion, transformation, and training code under `src/`.
@@ -90,13 +114,27 @@ python -m compileall . -q
 
 These tests focus on repo integrity, path hygiene, transformer behavior, and pipeline file expectations. They do not require raw data, retraining, network access, or a live service.
 
+## Scale and Benchmark Roadmap
+
+The planned evidence ladder progresses from a 10K-row smoke test to 100K and
+500K workflow checks, then a reproducible 1M-row scale proof. A 2M+ run should
+only be presented with runtime, memory, environment, and cost evidence.
+
+`scripts/benchmark_inference.py` provides a synthetic batch inference scaffold.
+It runs only when both fitted preprocessor and model artifacts are available and
+writes `reports/benchmark_summary.json` only after prediction succeeds.
+
+`scripts/generate_validation_report.py` documents and checks the inputs required
+for future confusion matrix, ROC, PR, calibration, classification, and threshold
+artifacts. It does not create placeholder evidence when inputs are absent.
+
 ## Current Gaps Before Senior Review
 
 - No committed full-scale training log.
 - No committed confusion matrix, ROC, PR, calibration, or threshold artifacts.
-- No class imbalance and threshold policy documentation yet.
+- No committed class imbalance analysis tied to a reproducible training run.
 - No containerized API or web UI layer currently exposed.
-- Limited tests added for repo integrity and transformer validation.
+- No measured batch inference, memory, or cost profile yet.
 
 ## Roadmap
 
