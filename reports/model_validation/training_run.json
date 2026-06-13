@@ -1,0 +1,28 @@
+{
+  "rows_loaded": 100000,
+  "rows_after_target_filter": 87892,
+  "rows_used": 87892,
+  "train_rows": 70313,
+  "test_rows": 17579,
+  "positive_rate": 0.20029126655440768,
+  "feature_count": 30,
+  "transformed_feature_count": 146,
+  "model_name": "LogisticRegression(class_weight='balanced')",
+  "random_state": 42,
+  "test_size": 0.2,
+  "training_seconds": 2.339218200009782,
+  "inference_seconds_test": 0.044585199997527525,
+  "created_at_utc": "2026-06-13T22:12:18.098228+00:00",
+  "sample_mode": true,
+  "sample_rows_requested": 100000,
+  "sampling_strategy": "Deterministic prefix sample from the local ignored source CSV.",
+  "data_path_mode": "local_ignored_data",
+  "target_column": "loan_status",
+  "eligible_positive_labels": [
+    "Charged Off",
+    "Default"
+  ],
+  "eligible_negative_labels": [
+    "Fully Paid"
+  ]
+}

@@ -9,7 +9,10 @@ hardening. The current codebase includes:
 - Feature preprocessing for numeric, categorical, high-cardinality, and
   date-like fields.
 - Baseline model training and hyperparameter tuning scaffolding.
-- A tracked fitted preprocessor artifact.
+- A tracked fitted logistic regression model and preprocessor from a
+  reproducible sample-scale run.
+- Holdout metrics, evaluation plots, threshold analysis, and measured batch
+  inference evidence.
 - A prediction pipeline that can load a preprocessor and model when both
   artifacts are available.
 - Repository integrity and transformer tests that do not require raw data.
@@ -18,9 +21,7 @@ hardening. The current codebase includes:
 
 The repository does not currently include:
 
-- A committed trained model artifact.
 - Reproducible full-scale execution logs.
-- Committed model evaluation plots or metric reports.
 - A verified serving API, web interface, container image, or live deployment.
 - Operational monitoring, drift detection, or automated retraining.
 

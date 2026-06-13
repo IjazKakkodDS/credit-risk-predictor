@@ -6,6 +6,7 @@ EVIDENCE_DOCS = [
     ROOT / "docs/evidence/system_scope.md",
     ROOT / "docs/evidence/data_scale_context.md",
     ROOT / "docs/evidence/model_validation_requirements.md",
+    ROOT / "docs/evidence/class_imbalance_policy.md",
     ROOT / "docs/evidence/threshold_policy.md",
     ROOT / "docs/evidence/resource_profile.md",
 ]

@@ -25,7 +25,24 @@ calibration quality, review capacity, and segment-level behavior. The selected
 threshold should be approved for a defined use case rather than treated as a
 universal model property.
 
-## Evidence required
+## Latest analytical evidence
+
+The latest sample-scale run generated
+[`reports/model_validation/threshold_analysis.json`](../../reports/model_validation/threshold_analysis.json).
+Across thresholds from 0.05 through 0.95:
+
+- The highest observed F1 was at threshold 0.55, with precision 0.3652,
+  recall 0.5882, and F1 0.4506.
+- The highest threshold retaining at least 0.80 recall was 0.40, with precision
+  0.2874 and recall 0.8174.
+- The closest observed precision and recall values occurred at threshold 0.65,
+  with precision 0.4341 and recall 0.4169.
+
+These are analytical thresholds for reviewer discussion. They are not a
+deployment policy and are not described as business-optimal because no approved
+loss or review-cost matrix is available.
+
+## Further evidence required
 
 Threshold readiness requires:
 
@@ -37,5 +54,6 @@ Threshold readiness requires:
 - Stability checks across relevant time periods and segments.
 - A written decision rule, owner, review schedule, and rollback criteria.
 
-Until these artifacts exist, this repository provides a threshold policy
-framework rather than a validated operating threshold.
+The current artifact establishes reproducible threshold analysis. A validated
+operating threshold still requires business loss assumptions, review-capacity
+constraints, segment stability checks, ownership, monitoring, and approval.

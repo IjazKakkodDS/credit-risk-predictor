@@ -1,0 +1,13 @@
+{
+  "benchmark": "synthetic_batch_inference",
+  "rows": 10000,
+  "runs": 5,
+  "elapsed_seconds": 0.18122820000280626,
+  "p50_seconds": 0.03626819999772124,
+  "p50_milliseconds": 36.26819999772124,
+  "rows_per_second": 275723.6367018024,
+  "rows_per_second_at_p50": 275723.6367018024,
+  "created_at_utc": "2026-06-13T22:12:32.969399+00:00",
+  "artifact_used": "artifact/model.pkl",
+  "notes": "Synthetic end-to-end preprocessing and prediction benchmark; not a raw-data or full-scale performance claim."
+}

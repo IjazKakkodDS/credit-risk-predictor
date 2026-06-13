@@ -1,31 +1,42 @@
 # Resource Profile
 
-The repository does not yet contain reproducible resource measurements. No
-runtime, memory, inference throughput, or deployment cost figures are asserted.
+## Latest measured run
 
-## Planned measurements
+The latest reproducible run used a deterministic 100,000-row prefix sample from
+the ignored local source. Target filtering retained 87,892 resolved loans,
+split into 70,313 training rows and 17,579 test rows.
 
-Future benchmark runs should capture:
+Measured by `scripts/train_credit_risk_model.py`:
 
-- Preprocessing runtime by dataset size.
-- Model training runtime by algorithm and tuning configuration.
-- Batch inference latency, including p50 and tail behavior where repeated runs
-  support it.
-- Peak and steady-state memory usage.
-- Cost per 1,000 predictions after a deployment target and pricing basis are
-  selected.
+- Preprocessing plus logistic regression fitting: 2.3392 seconds.
+- Test preprocessing and probability inference: 0.0446 seconds.
+- Input features: 30.
+- Transformed features: 146.
+- Sample mode: true.
 
-Measurements should include row count, feature count, hardware, operating
-system, Python and dependency versions, process configuration, warm-up policy,
-and the exact command used.
+Measured by `scripts/benchmark_inference.py` using 10,000 synthetic rows and
+five end-to-end preprocessing and prediction runs:
 
-## Likely bottlenecks to investigate
+- Median batch time: 0.0363 seconds.
+- Throughput at the median batch time: approximately 275,724 rows per second.
+- Total measured time across five runs: 0.1812 seconds.
 
-- Categorical encoding, especially high-cardinality fields.
-- Class imbalance handling and resampling strategies.
-- Model training on large accepted-loan datasets.
-- Probability calibration and threshold search.
-- SHAP or other explainability workloads if they are added later.
+These timings are local sample-scale evidence from one execution environment.
+They are not full-source or deployed-service benchmarks.
 
-These are investigation priorities, not measured findings. Resource claims
-should be added only after repeatable benchmark evidence is committed.
+## Not measured
+
+- Peak or steady-state memory.
+- Cold process startup.
+- Concurrent request behavior or tail latency under load.
+- Training or inference infrastructure cost.
+- Full-source preprocessing and training time.
+
+## Scaling caveats and next targets
+
+The deterministic prefix sample may not represent later source periods. Runtime
+will also vary with hardware, dependency versions, process contention, category
+cardinality, and model configuration.
+
+The next evidence targets are 100K resolved rows, 500K rows, 1M rows, and then
+2M+ only with runtime, memory, environment, and cost records.

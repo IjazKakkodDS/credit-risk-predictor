@@ -148,3 +148,11 @@ cython_debug/
 catboost_info/
 notebook/data/
 artifact/
+
+# Commit small reproducibility evidence while keeping raw/generated data ignored.
+!artifact/
+artifact/*
+!artifact/model.pkl
+!artifact/preprocessor.pkl
+!reports/
+!reports/**/*.json

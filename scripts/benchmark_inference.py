@@ -6,6 +6,7 @@ import argparse
 import json
 import pickle
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
 from statistics import median
 from time import perf_counter
@@ -19,8 +20,7 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 if str(REPO_ROOT) not in sys.path:
     sys.path.insert(0, str(REPO_ROOT))
 
-DEFAULT_MODEL_PATH = REPO_ROOT / "artifact" / "model.pkl"
-DEFAULT_PREPROCESSOR_PATH = REPO_ROOT / "artifact" / "preprocessor.pkl"
+DEFAULT_ARTIFACT_DIR = REPO_ROOT / "artifact"
 DEFAULT_OUTPUT_PATH = REPO_ROOT / "reports" / "benchmark_summary.json"
 MISSING_MODEL_MESSAGE = (
     "Model artifact not found. Benchmark scaffold is ready, but full benchmark "
@@ -37,11 +37,18 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--rows", type=int, default=1000)
     parser.add_argument("--runs", type=int, default=5)
-    parser.add_argument("--model-path", type=Path, default=DEFAULT_MODEL_PATH)
+    parser.add_argument("--artifact-dir", type=Path, default=DEFAULT_ARTIFACT_DIR)
+    parser.add_argument("--model-path", type=Path)
     parser.add_argument(
-        "--preprocessor-path", type=Path, default=DEFAULT_PREPROCESSOR_PATH
+        "--preprocessor-path", type=Path
     )
-    parser.add_argument("--output-path", type=Path, default=DEFAULT_OUTPUT_PATH)
+    parser.add_argument(
+        "--output",
+        "--output-path",
+        dest="output_path",
+        type=Path,
+        default=DEFAULT_OUTPUT_PATH,
+    )
     return parser.parse_args(argv)
 
 
@@ -139,10 +146,14 @@ def run_benchmark(args: argparse.Namespace) -> int:
     if args.runs <= 0:
         print("--runs must be greater than zero.", file=sys.stderr)
         return 2
-    if not args.model_path.is_file():
+    model_path = args.model_path or args.artifact_dir / "model.pkl"
+    preprocessor_path = (
+        args.preprocessor_path or args.artifact_dir / "preprocessor.pkl"
+    )
+    if not model_path.is_file():
         print(MISSING_MODEL_MESSAGE)
         return 0
-    if not args.preprocessor_path.is_file():
+    if not preprocessor_path.is_file():
         print(
             "Preprocessor artifact not found. Benchmark requires both the fitted "
             "preprocessor and trained model artifacts."
@@ -150,15 +161,15 @@ def run_benchmark(args: argparse.Namespace) -> int:
         return 0
 
     try:
-        preprocessor = load_pickle(args.preprocessor_path)
-        model = load_pickle(args.model_path)
+        preprocessor = load_pickle(preprocessor_path)
+        model = load_pickle(model_path)
         batch = generate_synthetic_rows(preprocessor, args.rows)
-        transformed = preprocessor.transform(batch)
 
-        model.predict(transformed)
+        model.predict(preprocessor.transform(batch))
         timings = []
         for _ in range(args.runs):
             started = perf_counter()
+            transformed = preprocessor.transform(batch)
             predictions = model.predict(transformed)
             timings.append(perf_counter() - started)
 
@@ -169,18 +180,25 @@ def run_benchmark(args: argparse.Namespace) -> int:
             )
 
         p50_seconds = median(timings)
+        elapsed_seconds = float(sum(timings))
+        try:
+            artifact_used = str(model_path.resolve().relative_to(REPO_ROOT))
+        except ValueError:
+            artifact_used = model_path.name
         summary = {
             "benchmark": "synthetic_batch_inference",
             "rows": args.rows,
             "runs": args.runs,
+            "elapsed_seconds": elapsed_seconds,
             "p50_seconds": p50_seconds,
             "p50_milliseconds": p50_seconds * 1000,
+            "rows_per_second": args.rows / p50_seconds,
             "rows_per_second_at_p50": args.rows / p50_seconds,
-            "model_path": str(args.model_path),
-            "preprocessor_path": str(args.preprocessor_path),
+            "created_at_utc": datetime.now(timezone.utc).isoformat(),
+            "artifact_used": artifact_used.replace("\\", "/"),
             "notes": (
-                "Synthetic pipeline smoke benchmark; not a raw-data or "
-                "full-scale performance claim."
+                "Synthetic end-to-end preprocessing and prediction benchmark; "
+                "not a raw-data or full-scale performance claim."
             ),
         }
         args.output_path.parent.mkdir(parents=True, exist_ok=True)
