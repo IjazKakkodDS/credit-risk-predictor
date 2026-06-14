@@ -5,7 +5,7 @@
 [![pandas](https://img.shields.io/badge/pandas-2.2.3-150458?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
 [![NumPy](https://img.shields.io/badge/NumPy-2.2.6-013243?logo=numpy&logoColor=white)](https://numpy.org/)
 [![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10.1-11557C)](https://matplotlib.org/)
-[![Pytest](https://img.shields.io/badge/tests-35%20passed-0A9EDC?logo=pytest&logoColor=white)](https://pytest.org/)
+[![Pytest](https://img.shields.io/badge/tests-38%20passed-0A9EDC?logo=pytest&logoColor=white)](https://pytest.org/)
 [![CI](https://github.com/IjazKakkodDS/credit-risk-predictor/actions/workflows/ci.yml/badge.svg)](https://github.com/IjazKakkodDS/credit-risk-predictor/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.txt)
 
@@ -70,8 +70,8 @@ reject loans.
 | Untouched-test calibrated Brier | 0.1470 |
 | Analytical threshold | 0.20, selected on calibration data only |
 | Largest completed batch benchmark | 500K rows across five measured runs |
-| Verification | 35 tests passed and compile checks clean |
-| CI | Python 3.13 dependency, pytest, and compile checks |
+| Verification | 38 tests passed and compile checks clean |
+| CI | Python 3.11 compatibility runner with dependency, pytest, and compile checks |
 | Full-source execution | Not run and not claimed |
 
 ## Business Problem
@@ -319,7 +319,7 @@ certification.
 | Scale benchmark runner | Executes bounded training stages and records runtime, metrics, and peak RSS |
 | Batch benchmark runner | Generates realistic synthetic batches and measures inference throughput |
 | Provenance and checksums | Records source fingerprint, environment, command, code hash, and artifact hashes |
-| CI | Runs repository tests and compilation without private raw data |
+| CI | Runs repository tests and compilation on Python 3.11 without private raw data |
 
 ## Evidence Artifacts
 
