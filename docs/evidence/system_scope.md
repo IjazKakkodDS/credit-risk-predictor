@@ -5,6 +5,8 @@
 This repository implements a modular credit risk modelling pipeline under active
 hardening. The current codebase includes:
 
+- A canonical CR-3 entry point at `scripts/train_credit_risk_model.py`, also
+  exposed through `main.py`.
 - CSV ingestion with configurable local data paths and train/test splitting.
 - Feature preprocessing for numeric, categorical, high-cardinality, and
   date-like fields.
@@ -16,6 +18,9 @@ hardening. The current codebase includes:
 - A prediction pipeline that can load a preprocessor and model when both
   artifacts are available.
 - Repository integrity and transformer tests that do not require raw data.
+
+Earlier modules under `src/components/` are retained experimentation
+scaffolding. They are not the source of the committed CR-3 metrics or artifacts.
 
 ## Current boundaries
 

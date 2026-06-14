@@ -7,6 +7,9 @@ EVIDENCE_DOCS = [
     ROOT / "docs/evidence/data_scale_context.md",
     ROOT / "docs/evidence/model_validation_requirements.md",
     ROOT / "docs/evidence/class_imbalance_policy.md",
+    ROOT / "docs/evidence/feature_availability_policy.md",
+    ROOT / "docs/evidence/model_card.md",
+    ROOT / "docs/evidence/reproducibility_profile.md",
     ROOT / "docs/evidence/threshold_policy.md",
     ROOT / "docs/evidence/resource_profile.md",
 ]

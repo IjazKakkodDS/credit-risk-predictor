@@ -1,0 +1,16 @@
+{
+  "strategy": "temporal",
+  "date_column": "issue_d",
+  "train_date_min": "2015-10-01",
+  "train_date_max": "2015-12-01",
+  "calibration_date_min": "2015-12-01",
+  "calibration_date_max": "2015-12-01",
+  "test_date_min": "2015-12-01",
+  "test_date_max": "2015-12-01",
+  "train_rows": 52735,
+  "calibration_rows": 17578,
+  "test_rows": 17579,
+  "train_positive_rate": 0.19252868114155683,
+  "calibration_positive_rate": 0.20923882125384002,
+  "test_positive_rate": 0.2146310939188805
+}

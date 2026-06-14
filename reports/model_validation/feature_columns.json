@@ -2,10 +2,7 @@
   "feature_columns": [
     "loan_amnt",
     "term",
-    "int_rate",
     "installment",
-    "grade",
-    "sub_grade",
     "emp_length",
     "home_ownership",
     "annual_inc",
@@ -33,7 +30,6 @@
   ],
   "numeric_columns": [
     "loan_amnt",
-    "int_rate",
     "installment",
     "annual_inc",
     "dti",
@@ -55,8 +51,6 @@
   ],
   "categorical_columns": [
     "term",
-    "grade",
-    "sub_grade",
     "emp_length",
     "home_ownership",
     "verification_status",
@@ -65,6 +59,29 @@
     "initial_list_status",
     "application_type"
   ],
-  "transformed_feature_count": 146,
-  "excluded_feature_policy": "Only curated application-time fields are used. Post-outcome payment, recovery, hardship, settlement, and status fields are excluded."
+  "segment_columns": [
+    "grade",
+    "purpose",
+    "home_ownership",
+    "addr_state",
+    "application_type",
+    "term"
+  ],
+  "transformed_feature_count": 103,
+  "excluded_leakage_fields": [
+    "recoveries",
+    "collection_recovery_fee",
+    "total_pymnt",
+    "total_rec_prncp",
+    "total_rec_int",
+    "last_pymnt_amnt",
+    "out_prncp",
+    "settlement_status",
+    "hardship_status",
+    "debt_settlement_flag",
+    "grade",
+    "sub_grade",
+    "int_rate"
+  ],
+  "prediction_moment": "pre-decision application-time"
 }

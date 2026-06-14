@@ -25,22 +25,20 @@ calibration quality, review capacity, and segment-level behavior. The selected
 threshold should be approved for a defined use case rather than treated as a
 universal model property.
 
-## Latest analytical evidence
+## CR-3 methodology
 
-The latest sample-scale run generated
+CR-3 selects thresholds on the calibration split rather than the final test
+split. The latest temporal run generated
 [`reports/model_validation/threshold_analysis.json`](../../reports/model_validation/threshold_analysis.json).
-Across thresholds from 0.05 through 0.95:
 
-- The highest observed F1 was at threshold 0.55, with precision 0.3652,
-  recall 0.5882, and F1 0.4506.
-- The highest threshold retaining at least 0.80 recall was 0.40, with precision
-  0.2874 and recall 0.8174.
-- The closest observed precision and recall values occurred at threshold 0.65,
-  with precision 0.4341 and recall 0.4169.
+The calibration-selected best-F1 threshold is 0.20. On the untouched test split
+it produced precision 0.3432, recall 0.6843, and F1 0.4572. Probability
+calibration uses Platt sigmoid fitting on the calibration split.
 
 These are analytical thresholds for reviewer discussion. They are not a
-deployment policy and are not described as business-optimal because no approved
-loss or review-cost matrix is available.
+deployment policy or an operating choice because no approved loss or
+review-cost matrix is available. The 100K temporal window is also narrow, so
+the selected value is not assumed stable across vintages.
 
 ## Further evidence required
 

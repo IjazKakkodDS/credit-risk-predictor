@@ -1,0 +1,784 @@
+{
+  "grade": {
+    "status": "completed",
+    "groups": [
+      {
+        "segment": "A",
+        "count": 3341,
+        "positive_rate": 0.058365758754863814,
+        "status": "measured",
+        "roc_auc": 0.6490146217418945,
+        "pr_auc": 0.10724571112526668,
+        "precision": 0.12658227848101267,
+        "recall": 0.05128205128205128,
+        "f1": 0.072992700729927
+      },
+      {
+        "segment": "B",
+        "count": 5434,
+        "positive_rate": 0.1437246963562753,
+        "status": "measured",
+        "roc_auc": 0.6165127450713307,
+        "pr_auc": 0.22351156342406373,
+        "precision": 0.214550853749072,
+        "recall": 0.3700384122919334,
+        "f1": 0.2716165413533835
+      },
+      {
+        "segment": "C",
+        "count": 4873,
+        "positive_rate": 0.23743074081674534,
+        "status": "measured",
+        "roc_auc": 0.6192821250905938,
+        "pr_auc": 0.34732216710905095,
+        "precision": 0.28264094955489616,
+        "recall": 0.658599827139153,
+        "f1": 0.3955359460160914
+      },
+      {
+        "segment": "D",
+        "count": 2327,
+        "positive_rate": 0.36914482165878815,
+        "status": "measured",
+        "roc_auc": 0.6481643315051719,
+        "pr_auc": 0.5163595531297418,
+        "precision": 0.40393826503459285,
+        "recall": 0.8835855646100116,
+        "f1": 0.5544192841490139
+      },
+      {
+        "segment": "E",
+        "count": 1168,
+        "positive_rate": 0.4546232876712329,
+        "status": "measured",
+        "roc_auc": 0.6272575957805981,
+        "pr_auc": 0.5698983786677256,
+        "precision": 0.4695177434030937,
+        "recall": 0.9717514124293786,
+        "f1": 0.6331288343558282
+      },
+      {
+        "segment": "F",
+        "count": 350,
+        "positive_rate": 0.5685714285714286,
+        "status": "measured",
+        "roc_auc": 0.6464774202136511,
+        "pr_auc": 0.6905955182137307,
+        "precision": 0.5764705882352941,
+        "recall": 0.9849246231155779,
+        "f1": 0.7272727272727273
+      },
+      {
+        "segment": "G",
+        "count": 86,
+        "positive_rate": 0.5930232558139535,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      }
+    ]
+  },
+  "purpose": {
+    "status": "completed",
+    "groups": [
+      {
+        "segment": "car",
+        "count": 141,
+        "positive_rate": 0.1702127659574468,
+        "status": "measured",
+        "roc_auc": 0.7995014245014245,
+        "pr_auc": 0.5359410505505458,
+        "precision": 0.35294117647058826,
+        "recall": 0.5,
+        "f1": 0.41379310344827586
+      },
+      {
+        "segment": "credit_card",
+        "count": 4340,
+        "positive_rate": 0.17764976958525347,
+        "status": "measured",
+        "roc_auc": 0.7311948000126468,
+        "pr_auc": 0.3739372875582971,
+        "precision": 0.3263888888888889,
+        "recall": 0.5486381322957199,
+        "f1": 0.409288824383164
+      },
+      {
+        "segment": "debt_consolidation",
+        "count": 9881,
+        "positive_rate": 0.23327598421212428,
+        "status": "measured",
+        "roc_auc": 0.7314071494180733,
+        "pr_auc": 0.465119911016612,
+        "precision": 0.35037406483790523,
+        "recall": 0.7314533622559652,
+        "f1": 0.4737951384010117
+      },
+      {
+        "segment": "home_improvement",
+        "count": 1114,
+        "positive_rate": 0.20107719928186715,
+        "status": "measured",
+        "roc_auc": 0.7152487961476726,
+        "pr_auc": 0.3908103951783018,
+        "precision": 0.35945945945945945,
+        "recall": 0.59375,
+        "f1": 0.4478114478114478
+      },
+      {
+        "segment": "house",
+        "count": 60,
+        "positive_rate": 0.31666666666666665,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "major_purchase",
+        "count": 371,
+        "positive_rate": 0.20485175202156333,
+        "status": "measured",
+        "roc_auc": 0.7174397859054416,
+        "pr_auc": 0.4319016005207819,
+        "precision": 0.35384615384615387,
+        "recall": 0.6052631578947368,
+        "f1": 0.44660194174757284
+      },
+      {
+        "segment": "medical",
+        "count": 227,
+        "positive_rate": 0.2643171806167401,
+        "status": "measured",
+        "roc_auc": 0.7833333333333333,
+        "pr_auc": 0.6413503468221744,
+        "precision": 0.3798449612403101,
+        "recall": 0.8166666666666667,
+        "f1": 0.5185185185185185
+      },
+      {
+        "segment": "moving",
+        "count": 95,
+        "positive_rate": 0.2631578947368421,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "other",
+        "count": 1066,
+        "positive_rate": 0.18386491557223264,
+        "status": "measured",
+        "roc_auc": 0.7199448745015248,
+        "pr_auc": 0.4179444923608019,
+        "precision": 0.2910284463894967,
+        "recall": 0.6785714285714286,
+        "f1": 0.40735068912710565
+      },
+      {
+        "segment": "renewable_energy",
+        "count": 8,
+        "positive_rate": 0.25,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "small_business",
+        "count": 190,
+        "positive_rate": 0.2789473684210526,
+        "status": "measured",
+        "roc_auc": 0.7777165679658449,
+        "pr_auc": 0.5730818459065855,
+        "precision": 0.3356164383561644,
+        "recall": 0.9245283018867925,
+        "f1": 0.49246231155778897
+      },
+      {
+        "segment": "vacation",
+        "count": 86,
+        "positive_rate": 0.20930232558139536,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      }
+    ]
+  },
+  "home_ownership": {
+    "status": "completed",
+    "groups": [
+      {
+        "segment": "ANY",
+        "count": 1,
+        "positive_rate": 0.0,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "MORTGAGE",
+        "count": 8403,
+        "positive_rate": 0.18552897774604307,
+        "status": "measured",
+        "roc_auc": 0.7355063770666281,
+        "pr_auc": 0.39449138058435057,
+        "precision": 0.3399363282631765,
+        "recall": 0.6164207825529185,
+        "f1": 0.4382124943000456
+      },
+      {
+        "segment": "OWN",
+        "count": 2035,
+        "positive_rate": 0.21867321867321868,
+        "status": "measured",
+        "roc_auc": 0.7123637905448379,
+        "pr_auc": 0.4407440290632829,
+        "precision": 0.3227222832052689,
+        "recall": 0.6606741573033708,
+        "f1": 0.4336283185840708
+      },
+      {
+        "segment": "RENT",
+        "count": 7140,
+        "positive_rate": 0.2477591036414566,
+        "status": "measured",
+        "roc_auc": 0.7251302164051463,
+        "pr_auc": 0.4836177856319392,
+        "precision": 0.35068710359408034,
+        "recall": 0.7501413227812324,
+        "f1": 0.47793985233207276
+      }
+    ]
+  },
+  "addr_state": {
+    "status": "completed",
+    "groups": [
+      {
+        "segment": "AK",
+        "count": 33,
+        "positive_rate": 0.24242424242424243,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "AL",
+        "count": 186,
+        "positive_rate": 0.27956989247311825,
+        "status": "measured",
+        "roc_auc": 0.7065154994259472,
+        "pr_auc": 0.4482488826573987,
+        "precision": 0.4158415841584158,
+        "recall": 0.8076923076923077,
+        "f1": 0.5490196078431373
+      },
+      {
+        "segment": "AR",
+        "count": 119,
+        "positive_rate": 0.2857142857142857,
+        "status": "measured",
+        "roc_auc": 0.6515570934256055,
+        "pr_auc": 0.4857884975116269,
+        "precision": 0.3484848484848485,
+        "recall": 0.6764705882352942,
+        "f1": 0.46
+      },
+      {
+        "segment": "AZ",
+        "count": 442,
+        "positive_rate": 0.2081447963800905,
+        "status": "measured",
+        "roc_auc": 0.7069875776397515,
+        "pr_auc": 0.4052890576725978,
+        "precision": 0.32941176470588235,
+        "recall": 0.6086956521739131,
+        "f1": 0.42748091603053434
+      },
+      {
+        "segment": "CA",
+        "count": 2380,
+        "positive_rate": 0.21554621848739497,
+        "status": "measured",
+        "roc_auc": 0.7394617293695466,
+        "pr_auc": 0.451859642042004,
+        "precision": 0.36430062630480164,
+        "recall": 0.6803118908382066,
+        "f1": 0.47450713800135963
+      },
+      {
+        "segment": "CO",
+        "count": 350,
+        "positive_rate": 0.19714285714285715,
+        "status": "measured",
+        "roc_auc": 0.7382536489762236,
+        "pr_auc": 0.4059777022820915,
+        "precision": 0.36036036036036034,
+        "recall": 0.5797101449275363,
+        "f1": 0.4444444444444444
+      },
+      {
+        "segment": "CT",
+        "count": 294,
+        "positive_rate": 0.1360544217687075,
+        "status": "measured",
+        "roc_auc": 0.7551181102362204,
+        "pr_auc": 0.4259247661021531,
+        "precision": 0.27835051546391754,
+        "recall": 0.675,
+        "f1": 0.39416058394160586
+      },
+      {
+        "segment": "DC",
+        "count": 39,
+        "positive_rate": 0.1282051282051282,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "DE",
+        "count": 58,
+        "positive_rate": 0.15517241379310345,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "FL",
+        "count": 1344,
+        "positive_rate": 0.24032738095238096,
+        "status": "measured",
+        "roc_auc": 0.7368693959361156,
+        "pr_auc": 0.4585466511065599,
+        "precision": 0.37261146496815284,
+        "recall": 0.7244582043343654,
+        "f1": 0.4921135646687697
+      },
+      {
+        "segment": "GA",
+        "count": 573,
+        "positive_rate": 0.16753926701570682,
+        "status": "measured",
+        "roc_auc": 0.7641509433962266,
+        "pr_auc": 0.4102069116716056,
+        "precision": 0.3282051282051282,
+        "recall": 0.6666666666666666,
+        "f1": 0.43986254295532645
+      },
+      {
+        "segment": "HI",
+        "count": 95,
+        "positive_rate": 0.24210526315789474,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "IL",
+        "count": 662,
+        "positive_rate": 0.18277945619335348,
+        "status": "measured",
+        "roc_auc": 0.7305876781595149,
+        "pr_auc": 0.4175948906780635,
+        "precision": 0.3076923076923077,
+        "recall": 0.6611570247933884,
+        "f1": 0.4199475065616798
+      },
+      {
+        "segment": "IN",
+        "count": 328,
+        "positive_rate": 0.23170731707317074,
+        "status": "measured",
+        "roc_auc": 0.7234753550543025,
+        "pr_auc": 0.5402646107880711,
+        "precision": 0.39344262295081966,
+        "recall": 0.631578947368421,
+        "f1": 0.48484848484848486
+      },
+      {
+        "segment": "KS",
+        "count": 133,
+        "positive_rate": 0.14285714285714285,
+        "status": "measured",
+        "roc_auc": 0.6883656509695292,
+        "pr_auc": 0.3811545724919272,
+        "precision": 0.2564102564102564,
+        "recall": 0.5263157894736842,
+        "f1": 0.3448275862068966
+      },
+      {
+        "segment": "KY",
+        "count": 171,
+        "positive_rate": 0.21052631578947367,
+        "status": "measured",
+        "roc_auc": 0.7242798353909465,
+        "pr_auc": 0.46435472555339496,
+        "precision": 0.28421052631578947,
+        "recall": 0.75,
+        "f1": 0.4122137404580153
+      },
+      {
+        "segment": "LA",
+        "count": 196,
+        "positive_rate": 0.25510204081632654,
+        "status": "measured",
+        "roc_auc": 0.7694520547945206,
+        "pr_auc": 0.5764988360480832,
+        "precision": 0.32558139534883723,
+        "recall": 0.84,
+        "f1": 0.4692737430167598
+      },
+      {
+        "segment": "MA",
+        "count": 410,
+        "positive_rate": 0.2097560975609756,
+        "status": "measured",
+        "roc_auc": 0.7196741314958368,
+        "pr_auc": 0.4374797635073852,
+        "precision": 0.32,
+        "recall": 0.5581395348837209,
+        "f1": 0.4067796610169492
+      },
+      {
+        "segment": "MD",
+        "count": 409,
+        "positive_rate": 0.21515892420537897,
+        "status": "measured",
+        "roc_auc": 0.7075545171339565,
+        "pr_auc": 0.4573609761893914,
+        "precision": 0.2994652406417112,
+        "recall": 0.6363636363636364,
+        "f1": 0.4072727272727273
+      },
+      {
+        "segment": "ME",
+        "count": 80,
+        "positive_rate": 0.175,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "MI",
+        "count": 465,
+        "positive_rate": 0.1870967741935484,
+        "status": "measured",
+        "roc_auc": 0.7043422733077904,
+        "pr_auc": 0.33902348647180874,
+        "precision": 0.305,
+        "recall": 0.7011494252873564,
+        "f1": 0.4250871080139373
+      },
+      {
+        "segment": "MN",
+        "count": 288,
+        "positive_rate": 0.19444444444444445,
+        "status": "measured",
+        "roc_auc": 0.7441502463054187,
+        "pr_auc": 0.4129215425570864,
+        "precision": 0.3302752293577982,
+        "recall": 0.6428571428571429,
+        "f1": 0.43636363636363634
+      },
+      {
+        "segment": "MO",
+        "count": 280,
+        "positive_rate": 0.2392857142857143,
+        "status": "measured",
+        "roc_auc": 0.6682783266764768,
+        "pr_auc": 0.4421788437675478,
+        "precision": 0.34108527131782945,
+        "recall": 0.6567164179104478,
+        "f1": 0.4489795918367347
+      },
+      {
+        "segment": "MS",
+        "count": 108,
+        "positive_rate": 0.24074074074074073,
+        "status": "measured",
+        "roc_auc": 0.7823639774859287,
+        "pr_auc": 0.5282527323646506,
+        "precision": 0.44,
+        "recall": 0.8461538461538461,
+        "f1": 0.5789473684210527
+      },
+      {
+        "segment": "MT",
+        "count": 51,
+        "positive_rate": 0.1568627450980392,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "NC",
+        "count": 476,
+        "positive_rate": 0.21218487394957983,
+        "status": "measured",
+        "roc_auc": 0.7126072607260727,
+        "pr_auc": 0.4242223943341672,
+        "precision": 0.32710280373831774,
+        "recall": 0.693069306930693,
+        "f1": 0.4444444444444444
+      },
+      {
+        "segment": "ND",
+        "count": 51,
+        "positive_rate": 0.21568627450980393,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "NE",
+        "count": 72,
+        "positive_rate": 0.25,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "NH",
+        "count": 85,
+        "positive_rate": 0.12941176470588237,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "NJ",
+        "count": 650,
+        "positive_rate": 0.24769230769230768,
+        "status": "measured",
+        "roc_auc": 0.7484535558688665,
+        "pr_auc": 0.5113966154195333,
+        "precision": 0.3730886850152905,
+        "recall": 0.7577639751552795,
+        "f1": 0.5
+      },
+      {
+        "segment": "NM",
+        "count": 103,
+        "positive_rate": 0.21359223300970873,
+        "status": "measured",
+        "roc_auc": 0.6531986531986532,
+        "pr_auc": 0.3727861488216079,
+        "precision": 0.25,
+        "recall": 0.6818181818181818,
+        "f1": 0.36585365853658536
+      },
+      {
+        "segment": "NV",
+        "count": 250,
+        "positive_rate": 0.192,
+        "status": "measured",
+        "roc_auc": 0.6362417491749175,
+        "pr_auc": 0.4253584865131358,
+        "precision": 0.21374045801526717,
+        "recall": 0.5833333333333334,
+        "f1": 0.3128491620111732
+      },
+      {
+        "segment": "NY",
+        "count": 1504,
+        "positive_rate": 0.2214095744680851,
+        "status": "measured",
+        "roc_auc": 0.7487889255609153,
+        "pr_auc": 0.47725197529992835,
+        "precision": 0.34444444444444444,
+        "recall": 0.7447447447447447,
+        "f1": 0.4710351377018044
+      },
+      {
+        "segment": "OH",
+        "count": 594,
+        "positive_rate": 0.23737373737373738,
+        "status": "measured",
+        "roc_auc": 0.7413930768869474,
+        "pr_auc": 0.5095188443652752,
+        "precision": 0.38,
+        "recall": 0.6737588652482269,
+        "f1": 0.4859335038363171
+      },
+      {
+        "segment": "OK",
+        "count": 153,
+        "positive_rate": 0.24836601307189543,
+        "status": "measured",
+        "roc_auc": 0.7148741418764302,
+        "pr_auc": 0.5245828040527132,
+        "precision": 0.30701754385964913,
+        "recall": 0.9210526315789473,
+        "f1": 0.4605263157894737
+      },
+      {
+        "segment": "OR",
+        "count": 169,
+        "positive_rate": 0.1301775147928994,
+        "status": "measured",
+        "roc_auc": 0.6870748299319728,
+        "pr_auc": 0.24603267557401665,
+        "precision": 0.25,
+        "recall": 0.4090909090909091,
+        "f1": 0.3103448275862069
+      },
+      {
+        "segment": "PA",
+        "count": 606,
+        "positive_rate": 0.24752475247524752,
+        "status": "measured",
+        "roc_auc": 0.7615204678362573,
+        "pr_auc": 0.5339157401997409,
+        "precision": 0.37,
+        "recall": 0.74,
+        "f1": 0.49333333333333335
+      },
+      {
+        "segment": "RI",
+        "count": 79,
+        "positive_rate": 0.1518987341772152,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "SC",
+        "count": 210,
+        "positive_rate": 0.19523809523809524,
+        "status": "measured",
+        "roc_auc": 0.7344494155000721,
+        "pr_auc": 0.41331643532248075,
+        "precision": 0.3617021276595745,
+        "recall": 0.4146341463414634,
+        "f1": 0.38636363636363635
+      },
+      {
+        "segment": "SD",
+        "count": 37,
+        "positive_rate": 0.2972972972972973,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "TN",
+        "count": 295,
+        "positive_rate": 0.22372881355932203,
+        "status": "measured",
+        "roc_auc": 0.7290591504565304,
+        "pr_auc": 0.43523221638608317,
+        "precision": 0.34285714285714286,
+        "recall": 0.7272727272727273,
+        "f1": 0.46601941747572817
+      },
+      {
+        "segment": "TX",
+        "count": 1436,
+        "positive_rate": 0.22493036211699163,
+        "status": "measured",
+        "roc_auc": 0.7428810650377332,
+        "pr_auc": 0.4864403290342936,
+        "precision": 0.35857805255023184,
+        "recall": 0.718266253869969,
+        "f1": 0.47835051546391755
+      },
+      {
+        "segment": "UT",
+        "count": 118,
+        "positive_rate": 0.1694915254237288,
+        "status": "measured",
+        "roc_auc": 0.7806122448979592,
+        "pr_auc": 0.4729330376262751,
+        "precision": 0.32075471698113206,
+        "recall": 0.85,
+        "f1": 0.4657534246575342
+      },
+      {
+        "segment": "VA",
+        "count": 516,
+        "positive_rate": 0.21124031007751937,
+        "status": "measured",
+        "roc_auc": 0.7079097446069923,
+        "pr_auc": 0.42607005196420633,
+        "precision": 0.34782608695652173,
+        "recall": 0.5871559633027523,
+        "f1": 0.43686006825938567
+      },
+      {
+        "segment": "VT",
+        "count": 38,
+        "positive_rate": 0.15789473684210525,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "WA",
+        "count": 325,
+        "positive_rate": 0.18153846153846154,
+        "status": "measured",
+        "roc_auc": 0.7667261373773416,
+        "pr_auc": 0.4789704399176704,
+        "precision": 0.34951456310679613,
+        "recall": 0.6101694915254238,
+        "f1": 0.4444444444444444
+      },
+      {
+        "segment": "WI",
+        "count": 224,
+        "positive_rate": 0.26785714285714285,
+        "status": "measured",
+        "roc_auc": 0.8050813008130081,
+        "pr_auc": 0.5796872776446444,
+        "precision": 0.5666666666666667,
+        "recall": 0.5666666666666667,
+        "f1": 0.5666666666666667
+      },
+      {
+        "segment": "WV",
+        "count": 70,
+        "positive_rate": 0.08571428571428572,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      },
+      {
+        "segment": "WY",
+        "count": 24,
+        "positive_rate": 0.25,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      }
+    ]
+  },
+  "application_type": {
+    "status": "completed",
+    "groups": [
+      {
+        "segment": "Individual",
+        "count": 17525,
+        "positive_rate": 0.21449358059914408,
+        "status": "measured",
+        "roc_auc": 0.7325225406044719,
+        "pr_auc": 0.4442130922940303,
+        "precision": 0.34343704099345707,
+        "recall": 0.6842245277999468,
+        "f1": 0.457325746799431
+      },
+      {
+        "segment": "Joint App",
+        "count": 54,
+        "positive_rate": 0.25925925925925924,
+        "status": "skipped",
+        "reason": "fewer than 100 rows"
+      }
+    ]
+  },
+  "term": {
+    "status": "completed",
+    "groups": [
+      {
+        "segment": " 36 months",
+        "count": 13518,
+        "positive_rate": 0.15719781032697144,
+        "status": "measured",
+        "roc_auc": 0.6784830313763354,
+        "pr_auc": 0.27738780105933925,
+        "precision": 0.25972364380757423,
+        "recall": 0.4776470588235294,
+        "f1": 0.3364826786010277
+      },
+      {
+        "segment": " 60 months",
+        "count": 4061,
+        "positive_rate": 0.4058113765082492,
+        "status": "measured",
+        "roc_auc": 0.677073819400577,
+        "pr_auc": 0.5738687888135658,
+        "precision": 0.4334716459197787,
+        "recall": 0.9508495145631068,
+        "f1": 0.5954778643359301
+      }
+    ]
+  }
+}

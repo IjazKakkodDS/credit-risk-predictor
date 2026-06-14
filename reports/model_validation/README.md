@@ -2,18 +2,20 @@
 
 ## Run summary
 
-- Run type: sample-scale reproducible run.
+- Run type: sample-scale temporal validation run.
 - Source sample: first 100,000 rows from the ignored local LendingClub CSV.
 - Rows used after resolved-outcome filtering: 87,892.
-- Training rows: 70,313.
+- Training rows: 52,735.
+- Calibration rows: 17,578.
 - Test rows: 17,579.
 - Positive-class rate: 20.03%.
-- Model: logistic regression with balanced class weights.
-- ROC-AUC: 0.7359.
-- PR-AUC: 0.4209.
-- Precision at threshold 0.50: 0.3340.
-- Recall at threshold 0.50: 0.6705.
-- F1 at threshold 0.50: 0.4459.
+- Model: balanced logistic regression with Platt calibration.
+- Untouched-test ROC-AUC: 0.7322.
+- Untouched-test PR-AUC: 0.4437.
+- Calibrated Brier score: 0.1470.
+- Precision at calibration-selected threshold 0.20: 0.3432.
+- Recall at threshold 0.20: 0.6843.
+- F1 at threshold 0.20: 0.4572.
 
 ## Artifacts
 
@@ -26,14 +28,15 @@
 - [Threshold analysis](threshold_analysis.json)
 - [Training run](training_run.json)
 - [Feature columns](feature_columns.json)
+- [Split summary](split_summary.json)
+- [Calibrated metrics](calibrated_metrics.json)
+- [Provenance](provenance.json)
+- [Artifact checksums](artifact_checksums.json)
+- [Segment stability](segment_stability.md)
 
-The highest observed F1 on the threshold grid occurred at 0.55. This is
-analytical evidence, not a business-optimal threshold.
-
-The calibration curve shows predicted probabilities above observed event rates
-across the evaluated bins. Balanced class weighting improves adverse-class
-attention but the current probabilities should be recalibrated before any
-probability-based decision policy is considered.
+Threshold selection occurs on calibration data. The final test split remains
+untouched until evaluation. The ordered 100K prefix spans only October through
+December 2015, so this is not broad multi-vintage validation.
 
 This is reproducible validation evidence for the committed pipeline. It is not
 a production deployment claim.

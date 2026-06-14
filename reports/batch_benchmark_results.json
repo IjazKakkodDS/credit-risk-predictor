@@ -1,0 +1,47 @@
+{
+  "benchmark": "synthetic_batch_inference_ladder",
+  "results": [
+    {
+      "rows": 10000,
+      "runs": 5,
+      "elapsed_seconds": 0.14528780002729036,
+      "p50_seconds": 0.028259399987291545,
+      "p95_seconds": 0.03178620000835508,
+      "rows_per_second": 353864.55496213905,
+      "created_at_utc": "2026-06-14T00:41:15.341305+00:00",
+      "artifact_used": "artifact/model.pkl",
+      "categorical_generation_status": "realistic_categories",
+      "peak_process_rss_mb": 156.97265625,
+      "status": "success",
+      "failure_reason": null
+    },
+    {
+      "rows": 100000,
+      "runs": 5,
+      "elapsed_seconds": 0.9432330999698024,
+      "p50_seconds": 0.1888009999820497,
+      "p95_seconds": 0.19119337999727576,
+      "rows_per_second": 529658.2116064403,
+      "created_at_utc": "2026-06-14T00:41:16.576070+00:00",
+      "artifact_used": "artifact/model.pkl",
+      "categorical_generation_status": "realistic_categories",
+      "peak_process_rss_mb": 178.43359375,
+      "status": "success",
+      "failure_reason": null
+    },
+    {
+      "rows": 500000,
+      "runs": 5,
+      "elapsed_seconds": 6.947251300007338,
+      "p50_seconds": 1.2856820000160951,
+      "p95_seconds": 1.8072882399952503,
+      "rows_per_second": 388898.65456134616,
+      "created_at_utc": "2026-06-14T00:41:24.969080+00:00",
+      "artifact_used": "artifact/model.pkl",
+      "categorical_generation_status": "realistic_categories",
+      "peak_process_rss_mb": 264.125,
+      "status": "success",
+      "failure_reason": null
+    }
+  ]
+}

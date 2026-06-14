@@ -1,0 +1,35 @@
+{
+  "calibration_method": "platt_sigmoid",
+  "calibration_split": "calibration",
+  "default_threshold_metrics": {
+    "threshold": 0.5,
+    "accuracy": 0.7965185732976847,
+    "precision": 0.5929791271347249,
+    "recall": 0.16565067585475748,
+    "f1": 0.2589600165734411,
+    "roc_auc": 0.7322483811587928,
+    "pr_auc": 0.4437358450929949,
+    "brier_score": 0.14695746193548337,
+    "true_negative_count": 13377,
+    "false_positive_count": 429,
+    "false_negative_count": 3148,
+    "true_positive_count": 625
+  },
+  "selected_threshold_metrics": {
+    "threshold": 0.2,
+    "accuracy": 0.6511746970817452,
+    "precision": 0.3432141432938987,
+    "recall": 0.6843360720911741,
+    "f1": 0.4571529745042493,
+    "roc_auc": 0.7322483811587928,
+    "pr_auc": 0.4437358450929949,
+    "brier_score": 0.14695746193548337,
+    "true_negative_count": 8865,
+    "false_positive_count": 4941,
+    "false_negative_count": 1191,
+    "true_positive_count": 2582
+  },
+  "selected_threshold_source": "calibration_best_f1",
+  "calibration_brier_before": 0.2096077379277471,
+  "calibration_brier_after": 0.14703588017340383
+}

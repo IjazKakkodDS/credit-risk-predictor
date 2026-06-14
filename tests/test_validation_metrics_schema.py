@@ -49,17 +49,22 @@ def test_training_run_schema_and_counts():
         assert isinstance(run[key], int)
         assert run[key] > 0
 
-    assert run["train_rows"] + run["test_rows"] == run["rows_used"]
+    assert (
+        run["train_rows"] + run["calibration_rows"] + run["test_rows"]
+        == run["rows_used"]
+    )
     assert 0 <= run["positive_rate"] <= 1
     assert run["training_seconds"] > 0
     assert run["inference_seconds_test"] > 0
     assert run["data_path_mode"] == "local_ignored_data"
+    assert run["run_status"] == "success"
 
 
 def test_threshold_analysis_has_expected_grid_and_selections():
     analysis = load_json("threshold_analysis.json")
 
     assert len(analysis["threshold_grid"]) == 19
+    assert analysis["selection_split"] == "calibration"
     assert analysis["best_f1_threshold"]["threshold"] in {
         item["threshold"] for item in analysis["threshold_grid"]
     }

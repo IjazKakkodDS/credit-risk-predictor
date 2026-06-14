@@ -1,0 +1,20 @@
+{
+  "prediction_moment": "pre-decision application-time",
+  "grade_sub_grade_int_rate": "excluded from model; diagnostic use only",
+  "excluded_leakage_fields": [
+    "recoveries",
+    "collection_recovery_fee",
+    "total_pymnt",
+    "total_rec_prncp",
+    "total_rec_int",
+    "last_pymnt_amnt",
+    "out_prncp",
+    "settlement_status",
+    "hardship_status",
+    "debt_settlement_flag",
+    "grade",
+    "sub_grade",
+    "int_rate"
+  ],
+  "policy_document": "docs/evidence/feature_availability_policy.md"
+}

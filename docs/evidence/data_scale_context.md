@@ -14,12 +14,15 @@ the original source.
 
 | Stage | Intended purpose |
 | --- | --- |
-| 10K rows | Smoke test for data contracts and pipeline correctness |
-| 100K rows | Local end-to-end workflow check |
-| 500K rows | Medium stress test with runtime and memory capture |
-| 1M rows | Senior scale proof with reproducible evidence |
+| 100K rows | Completed temporal correctness and calibration run |
+| 500K rows | Completed medium stress run with memory capture |
+| 1M rows | Completed senior scale run with memory capture |
 | 2M+ rows | Run only with runtime, memory, environment, and cost evidence |
 
-Each completed stage should record the dataset version, row and feature counts,
-hardware or execution environment, dependency versions, command used, runtime,
-peak memory, output artifacts, and any failures or caveats.
+The completed 1M source-prefix stage retained 571,494 resolved outcomes. It does
+not establish full-source execution. The full local source, 2M, 5M, and 10M
+targets remain unclaimed.
+
+Completed stages record row counts, split strategy, runtime, peak process-tree
+memory, artifact size, ROC-AUC, PR-AUC, and Brier score in
+`reports/scale_benchmark_results.json`.

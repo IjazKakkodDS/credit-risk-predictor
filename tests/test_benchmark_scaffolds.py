@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BENCHMARK_SCRIPT = ROOT / "scripts/benchmark_inference.py"
 VALIDATION_SCRIPT = ROOT / "scripts/generate_validation_report.py"
 TRAINING_SCRIPT = ROOT / "scripts/train_credit_risk_model.py"
+SCALE_SCRIPT = ROOT / "scripts/run_scale_benchmarks.py"
 
 
 def run_script(script: Path, *arguments: str) -> subprocess.CompletedProcess[str]:
@@ -23,10 +24,16 @@ def test_scaffold_scripts_exist():
     assert BENCHMARK_SCRIPT.is_file()
     assert VALIDATION_SCRIPT.is_file()
     assert TRAINING_SCRIPT.is_file()
+    assert SCALE_SCRIPT.is_file()
 
 
 def test_scaffold_scripts_expose_help():
-    for script in [BENCHMARK_SCRIPT, VALIDATION_SCRIPT, TRAINING_SCRIPT]:
+    for script in [
+        BENCHMARK_SCRIPT,
+        VALIDATION_SCRIPT,
+        TRAINING_SCRIPT,
+        SCALE_SCRIPT,
+    ]:
         result = run_script(script, "--help")
         assert result.returncode == 0
         assert "usage:" in result.stdout.lower()

@@ -1,0 +1,17 @@
+{
+  "created_at_utc": "2026-06-14T00:46:57.856756+00:00",
+  "source_parent_commit": "a7ebb5b4896a17da39771850d6a3534109a1afc4",
+  "working_tree_dirty_at_generation": true,
+  "training_script_sha256": "4676d4d6d85be4dc9674a6f5d10be2e6885d2c4fb989b58e03e3deb1eab0d456",
+  "python_version": "3.13.1",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "scikit_learn_version": "1.6.1",
+  "numpy_version": "2.2.6",
+  "pandas_version": "2.2.3",
+  "command": "python scripts/train_credit_risk_model.py --sample-rows 100000 --split-strategy temporal",
+  "dataset_fingerprint": {
+    "filename": "lending_club_accepted_loans.csv",
+    "size_bytes": 1675133810,
+    "sha256": "3eae03c28fd9d2e8a076ebeb73507e8d4d0f44d90500decdb0936e0933d1f36a"
+  }
+}

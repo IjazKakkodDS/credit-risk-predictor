@@ -2,7 +2,7 @@
 
 ## Observed distribution
 
-The latest committed validation run loaded a deterministic 100,000-row prefix
+The CR-3 canonical validation run loaded a deterministic 100,000-row prefix
 sample from the ignored local LendingClub CSV. After retaining only resolved
 outcomes, 87,892 rows remained:
 
@@ -19,7 +19,7 @@ Credit default datasets are typically imbalanced because resolved defaults are
 less common than successful repayment. Accuracy alone can therefore obscure
 poor detection of the adverse class.
 
-The current logistic regression baseline uses `class_weight="balanced"`. This
+The logistic regression baseline uses `class_weight="balanced"`. This
 weights classes inversely to their training frequency without creating
 synthetic observations. The holdout report includes:
 
@@ -28,10 +28,9 @@ synthetic observations. The holdout report includes:
 - Precision, recall, and F1 at threshold 0.50.
 - Threshold-grid results for alternative operating points.
 
-The latest calibration curve shows systematic probability overprediction. This
-is a known trade-off of the current weighted baseline and requires calibration
-on suitable validation data before probabilities are interpreted as event
-likelihoods.
+CR-3 applies Platt calibration on an independent calibration split. Calibration
+reduced calibration-split Brier score from 0.2096 to 0.1470. Calibration
+stability across broader vintages is still unproven.
 
 ## Decision trade-off
 

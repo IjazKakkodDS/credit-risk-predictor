@@ -25,8 +25,8 @@ The original LendingClub source contains approximately 2.26M accepted-loan recor
 
 This repo is a modular credit risk modelling pipeline under active hardening. It
 is public-safe after contamination cleanup and now includes a reproducible
-sample-scale training run, holdout validation artifacts, threshold analysis,
-class imbalance policy, and a genuine batch inference benchmark.
+temporal training, calibration and untouched-test workflow, segment diagnostics,
+scale evidence through a 1M source-row prefix, and a corrected batch benchmark.
 
 It does not yet claim full-scale benchmark execution or production deployment.
 The approximately 2.26M-record figure describes the original source scale only.
@@ -37,50 +37,74 @@ The approximately 2.26M-record figure describes the original source scale only.
 - [Data scale context](docs/evidence/data_scale_context.md)
 - [Model validation requirements](docs/evidence/model_validation_requirements.md)
 - [Class imbalance policy](docs/evidence/class_imbalance_policy.md)
+- [Feature availability policy](docs/evidence/feature_availability_policy.md)
+- [Model card](docs/evidence/model_card.md)
+- [Reproducibility profile](docs/evidence/reproducibility_profile.md)
 - [Threshold policy](docs/evidence/threshold_policy.md)
 - [Measured resource profile](docs/evidence/resource_profile.md)
 - [Validation report index](reports/model_validation/README.md)
 - Tracked fitted model and preprocessor artifacts under `artifact/`.
 
-The committed run loaded a deterministic 100,000-row prefix sample and retained
-87,892 resolved outcomes. It used 70,313 training rows and 17,579 test rows with
-a 20.03% positive-class rate.
+The canonical run loaded a deterministic 100,000-row prefix and retained 87,892
+resolved outcomes. It used 52,735 training rows, 17,578 calibration rows, and
+17,579 untouched test rows with a 20.03% overall positive-class rate.
 
-## Model Validation Evidence
+## CR-3 Scale and Validation Evidence
 
-The class-weighted logistic regression baseline produced these holdout results:
+The CR-3 baseline excludes LendingClub grade, sub-grade, and interest rate from
+pre-decision model inputs, applies Platt calibration on a separate calibration
+split, and selects its analytical threshold without using the final test split.
 
 | Metric | Value |
 | --- | ---: |
-| ROC-AUC | 0.7359 |
-| PR-AUC | 0.4209 |
-| Precision at 0.50 | 0.3340 |
-| Recall at 0.50 | 0.6705 |
-| F1 at 0.50 | 0.4459 |
+| Untouched-test ROC-AUC | 0.7322 |
+| Untouched-test PR-AUC | 0.4437 |
+| Calibrated Brier score | 0.1470 |
+| Precision at selected 0.20 threshold | 0.3432 |
+| Recall at selected 0.20 threshold | 0.6843 |
+| F1 at selected 0.20 threshold | 0.4572 |
 
 The committed evidence includes a confusion matrix, ROC curve, precision-recall
 curve, calibration curve, classification report, feature contract, and
-reproducible training metadata. The calibration curve indicates systematic
-risk overprediction, so probability recalibration remains required.
+reproducible provenance and checksums.
+
+The original source file contains approximately 2.26M rows, but scale claims
+are based only on completed benchmark runs. CR-3 completed these temporal
+training stages:
+
+| Requested rows | Usable resolved rows | Training seconds | Peak RSS | ROC-AUC | PR-AUC |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 100K | 87,892 | 1.0432 | 505.54 MB | 0.7322 | 0.4437 |
+| 500K | 391,168 | 12.0387 | 1,790.68 MB | 0.7195 | 0.3980 |
+| 1M | 571,494 | 17.2885 | 3,241.73 MB | 0.6955 | 0.3727 |
+
+The full dataset was not run. Larger 2M, 5M, and 10M targets remain planned.
 
 ## Threshold and Class Imbalance Policy
 
 The baseline uses balanced class weights rather than optimizing accuracy alone.
-The threshold grid found its highest observed F1 at 0.55, with F1 0.4506. This
-is an analytical result for reviewer discussion, not a business-optimal
-threshold. Selection still requires approved loss, false-rejection, and review
+The calibration grid selected threshold 0.20 by F1, then evaluated it once on
+the untouched test split. This remains analytical evidence for reviewer
+discussion. Selection still requires approved loss, false-rejection, and review
 capacity assumptions.
 
 ## Batch Benchmark Evidence
 
-A 10,000-row synthetic end-to-end benchmark measured preprocessing plus
-prediction across five runs:
+A corrected synthetic benchmark draws category values from fitted transformer
+vocabularies and measures preprocessing plus prediction across five runs:
 
-- Median batch time: 36.27 ms.
-- Throughput at the median batch time: approximately 275,724 rows per second.
+| Rows | p50 | p95 | Rows per second | Peak RSS |
+| ---: | ---: | ---: | ---: | ---: |
+| 10K | 0.0283 s | 0.0318 s | 353,865 | 156.97 MB |
+| 100K | 0.1888 s | 0.1912 s | 529,658 | 178.43 MB |
+| 500K | 1.2857 s | 1.8073 s | 388,899 | 264.12 MB |
 
 This is a local artifact benchmark, not a deployed-service or full-source
 performance claim.
+
+Segment diagnostics cover grade, purpose, home ownership, state, application
+type, and term where groups contain enough rows and both target classes. They
+are not fairness certification.
 
 ## Current System Scope
 
@@ -89,7 +113,7 @@ performance claim.
 - Tracked logistic regression and preprocessing artifacts under `artifact/`.
 - Reproducible sample-scale validation evidence under `reports/`.
 - Credit risk EDA notebook at `notebook/eda_credit_risk.ipynb`.
-- Elastic Beanstalk configuration is present, but live deployment is not currently verified.
+- GitHub Actions runs tests and compilation without raw data.
 - No production service is claimed.
 
 ## Repository Structure
@@ -100,13 +124,17 @@ credit-risk-predictor/
 |   |-- model.pkl
 |   `-- preprocessor.pkl
 |-- docs/evidence/
+|-- .github/workflows/
 |-- notebook/
 |   `-- eda_credit_risk.ipynb
 |-- reports/
 |   |-- benchmark_summary.json
+|   |-- batch_benchmark_results.json
+|   |-- scale_benchmark_results.json
 |   `-- model_validation/
 |-- scripts/
 |   |-- benchmark_inference.py
+|   |-- run_scale_benchmarks.py
 |   `-- train_credit_risk_model.py
 |-- src/
 |   |-- components/
@@ -148,9 +176,12 @@ set CREDIT_RISK_DATA_PATH=path\to\lending_club_accepted_loans.csv
 
 ## Pipeline Components
 
-- `src/components/data_ingestion.py` loads the configured CSV, removes high-null columns, and writes train/test splits.
-- `src/components/data_transformation.py` builds preprocessing pipelines for numeric, categorical, high-cardinality categorical, and date-like features.
-- `src/components/model_trainer.py` contains baseline model training and Optuna-backed tuning scaffolding.
+- `scripts/train_credit_risk_model.py` is the canonical CR-3 training,
+  calibration, validation, and report-generation path.
+- `main.py` delegates to the canonical trainer.
+- `src/components/` retains earlier modular ingestion, transformation, and
+  multi-model experimentation scaffolding for reference. It is not the source
+  of the committed CR-3 evidence.
 - `src/pipeline/predict_pipeline.py` provides a prediction pipeline entry point for future inference integration.
 
 ## Validation
@@ -166,9 +197,9 @@ These tests focus on repo integrity, path hygiene, transformer behavior, and pip
 
 ## Scale Roadmap
 
-The current evidence is sample-scale. The next targets are 100K resolved rows,
-500K rows, and a reproducible 1M-row run. A 2M+ run should only be presented
-with runtime, memory, environment, and cost evidence.
+CR-3 completed 100K, 500K, and 1M source-prefix stages. The next possible target
+is the full local source, but it should only be attempted with sufficient memory
+headroom after the measured 3.24 GB peak at 1M.
 
 `scripts/benchmark_inference.py` provides a synthetic batch inference scaffold.
 It runs only when both fitted preprocessor and model artifacts are available and
@@ -179,11 +210,12 @@ threshold analysis from an explicitly supplied local dataset path.
 
 ## Current Gaps Before Senior Review
 
-- No full-source training or scale benchmark.
-- No memory profile, cost profile, or concurrency benchmark.
+- No full-source training benchmark.
+- No deployment cost or concurrency benchmark.
 - No approved business cost matrix or operating threshold.
 - No containerized API or web UI layer currently exposed.
-- No temporal holdout or segment-level fairness and stability analysis yet.
+- The canonical 100K temporal window is narrow and not broad multi-vintage proof.
+- Segment diagnostics are not protected-class fairness validation.
 
 ## Roadmap
 

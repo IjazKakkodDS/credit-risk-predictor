@@ -1,32 +1,32 @@
 # Resource Profile
 
-## Latest measured run
+## CR-3 measured training ladder
 
-The latest reproducible run used a deterministic 100,000-row prefix sample from
-the ignored local source. Target filtering retained 87,892 resolved loans,
-split into 70,313 training rows and 17,579 test rows.
+All CR-3 scale stages used temporal ordering, Platt calibration, and an
+untouched test partition.
 
-Measured by `scripts/train_credit_risk_model.py`:
+| Requested source rows | Usable rows | Training seconds | Total pipeline seconds | Peak process-tree RSS |
+| ---: | ---: | ---: | ---: | ---: |
+| 100,000 | 87,892 | 1.0432 | 2.9906 | 505.54 MB |
+| 500,000 | 391,168 | 12.0387 | 20.6102 | 1,790.68 MB |
+| 1,000,000 | 571,494 | 17.2885 | 32.3325 | 3,241.73 MB |
 
-- Preprocessing plus logistic regression fitting: 2.3392 seconds.
-- Test preprocessing and probability inference: 0.0446 seconds.
-- Input features: 30.
-- Transformed features: 146.
-- Sample mode: true.
+The full 2.26M source was not requested. Peak memory is measured from the
+training process tree and includes Python plus native library allocations.
 
-Measured by `scripts/benchmark_inference.py` using 10,000 synthetic rows and
-five end-to-end preprocessing and prediction runs:
+## CR-3 batch inference ladder
 
-- Median batch time: 0.0363 seconds.
-- Throughput at the median batch time: approximately 275,724 rows per second.
-- Total measured time across five runs: 0.1812 seconds.
+| Rows | p50 | p95 | Rows per second | Peak process RSS |
+| ---: | ---: | ---: | ---: | ---: |
+| 10,000 | 0.0283 s | 0.0318 s | 353,865 | 156.97 MB |
+| 100,000 | 0.1888 s | 0.1912 s | 529,658 | 178.43 MB |
+| 500,000 | 1.2857 s | 1.8073 s | 388,899 | 264.12 MB |
 
-These timings are local sample-scale evidence from one execution environment.
-They are not full-source or deployed-service benchmarks.
+Categorical values are drawn from fitted transformer vocabularies. These are
+local batch measurements, not service-concurrency or deployment benchmarks.
 
 ## Not measured
 
-- Peak or steady-state memory.
 - Cold process startup.
 - Concurrent request behavior or tail latency under load.
 - Training or inference infrastructure cost.
@@ -38,5 +38,9 @@ The deterministic prefix sample may not represent later source periods. Runtime
 will also vary with hardware, dependency versions, process contention, category
 cardinality, and model configuration.
 
-The next evidence targets are 100K resolved rows, 500K rows, 1M rows, and then
-2M+ only with runtime, memory, environment, and cost records.
+The next scale target is the full local source only if 3.24 GB peak memory at
+the 1M stage leaves sufficient safety margin. Future 2M, 5M, and 10M targets
+remain planning context rather than completed evidence.
+
+Cost per 1,000 predictions is not estimated because no deployment target,
+instance class, utilization profile, or pricing basis has been selected.

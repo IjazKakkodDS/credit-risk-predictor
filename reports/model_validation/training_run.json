@@ -1,28 +1,25 @@
 {
+  "run_status": "success",
+  "failure_reason": null,
   "rows_loaded": 100000,
   "rows_after_target_filter": 87892,
   "rows_used": 87892,
-  "train_rows": 70313,
+  "train_rows": 52735,
+  "calibration_rows": 17578,
   "test_rows": 17579,
   "positive_rate": 0.20029126655440768,
-  "feature_count": 30,
-  "transformed_feature_count": 146,
-  "model_name": "LogisticRegression(class_weight='balanced')",
+  "feature_count": 27,
+  "transformed_feature_count": 103,
+  "model_name": "LogisticRegression(class_weight='balanced') + Platt calibration",
   "random_state": 42,
-  "test_size": 0.2,
-  "training_seconds": 2.339218200009782,
-  "inference_seconds_test": 0.044585199997527525,
-  "created_at_utc": "2026-06-13T22:12:18.098228+00:00",
+  "split_strategy": "temporal",
+  "training_seconds": 0.9838568000122905,
+  "calibration_seconds": 0.022983700007898733,
+  "inference_seconds_test": 0.003319100011140108,
+  "total_pipeline_seconds": 2.4458388999919407,
+  "created_at_utc": "2026-06-14T00:46:57.856756+00:00",
   "sample_mode": true,
   "sample_rows_requested": 100000,
-  "sampling_strategy": "Deterministic prefix sample from the local ignored source CSV.",
   "data_path_mode": "local_ignored_data",
-  "target_column": "loan_status",
-  "eligible_positive_labels": [
-    "Charged Off",
-    "Default"
-  ],
-  "eligible_negative_labels": [
-    "Fully Paid"
-  ]
+  "target_column": "loan_status"
 }
