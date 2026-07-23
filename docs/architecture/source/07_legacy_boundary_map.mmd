@@ -1,0 +1,21 @@
+%% Editable source for docs/architecture/07_legacy_boundary_map.svg
+%% Reviewer-support diagram: active CR-3 evidence path vs. disclaimed legacy scaffolding.
+%% No edges connect the two subgraphs: legacy scaffolding has no evidence link
+%% to the published CR-3 claims. Neither lane is a deployed or production-serving system.
+flowchart TB
+    subgraph active["Active CR-3 Evidence Path (canonical, tested, CI-verified)"]
+        A1[scripts/train_credit_risk_model.py] --> A2[sklearn preprocessing]
+        A2 --> A3[balanced LogisticRegression]
+        A3 --> A4[Platt calibration]
+        A4 --> A5[calibration-only threshold selection]
+        A5 --> A6[untouched test evaluation]
+        A6 --> A7[reports/model_validation/]
+        A7 --> A8[artifact/model.pkl and artifact/preprocessor.pkl]
+    end
+    subgraph legacy["Legacy Scaffolding (retained, disclaimed, not CR-3 evidence)"]
+        L1[src/components/model_trainer.py]
+        L2[src/utils.py Optuna helper]
+        L3[src/pipeline/predict_pipeline.py]
+        L4[static/]
+        L5[Legacy requirements entries: xgboost, catboost, optuna, Flask, gunicorn]
+    end

@@ -379,6 +379,11 @@ credit-risk-predictor/
 `src/components/` retains earlier modular experimentation scaffolding and is not
 the source of the committed CR-3 validation evidence.
 
+The diagram below separates that canonical path from the retained legacy
+scaffolding so this boundary is visible before browsing the source tree.
+
+![Legacy Boundary Map: the active, canonical CR-3 evidence path (training script through calibration, threshold selection, untouched test evaluation, and generated reports) versus retained, disclaimed legacy scaffolding, with no evidence link between them. Neither path is deployed or production-serving.](docs/architecture/07_legacy_boundary_map.svg)
+
 ## Getting Started
 
 ```bash
