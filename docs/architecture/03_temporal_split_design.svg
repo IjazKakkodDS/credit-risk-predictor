@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 180" width="100%" role="img" aria-labelledby="svgTitle svgDesc">
+  <title id="svgTitle">Temporal Split Design</title>
+  <desc id="svgDesc">Rows are sorted by issue_d, then allocated to the earlier 60 percent as training, the middle 20 percent as calibration and threshold selection, and the latest 20 percent as the untouched final test.</desc>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <style>
+    .bg { fill:#ffffff; }
+    .node { fill:#f8fafc; stroke:#2563eb; stroke-width:1.5; }
+    .label { font-family: Arial, Helvetica, sans-serif; font-size:13px; fill:#1e293b; text-anchor:middle; }
+    .edge { stroke:#475569; stroke-width:2; fill:none; marker-end:url(#arrowhead); }
+  </style>
+  <rect class="bg" x="0" y="0" width="1240" height="180"/>
+
+  <!-- edges -->
+  <line class="edge" x1="300" y1="100" x2="338" y2="100"/>
+  <line class="edge" x1="600" y1="100" x2="638" y2="100"/>
+  <line class="edge" x1="900" y1="100" x2="938" y2="100"/>
+
+  <!-- nodes -->
+  <rect class="node" x="40" y="60" width="260" height="80" rx="10"/>
+  <text class="label" x="170" y="105">Rows sorted by issue_d</text>
+
+  <rect class="node" x="340" y="60" width="260" height="80" rx="10"/>
+  <text class="label" x="470" y="94">Earlier 60 percent:</text>
+  <text class="label" x="470" y="110">training</text>
+
+  <rect class="node" x="640" y="60" width="260" height="80" rx="10"/>
+  <text class="label" x="770" y="84">Middle 20 percent:</text>
+  <text class="label" x="770" y="100">calibration and</text>
+  <text class="label" x="770" y="116">threshold selection</text>
+
+  <rect class="node" x="940" y="60" width="260" height="80" rx="10"/>
+  <text class="label" x="1070" y="94">Latest 20 percent:</text>
+  <text class="label" x="1070" y="110">untouched final test</text>
+</svg>

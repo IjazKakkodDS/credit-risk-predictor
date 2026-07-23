@@ -9,7 +9,10 @@ def test_readme_has_renderable_structure():
 
     assert len(lines) > 150
     assert sum(line.startswith("#") for line in lines) >= 15
-    assert sum(line == "```mermaid" for line in lines) >= 1
+    assert sum(
+        line.strip().startswith("![") and "docs/architecture/" in line and line.rstrip().endswith(".svg)")
+        for line in lines
+    ) >= 6
     assert sum(line == "```" for line in lines) >= 2
     assert max(map(len, lines)) < 500
 

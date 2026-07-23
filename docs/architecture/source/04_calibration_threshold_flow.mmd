@@ -1,0 +1,9 @@
+%% Editable source for docs/architecture/04_calibration_threshold_flow.svg
+%% Corresponds to the "Calibration and Threshold Flow" diagram in README.md
+flowchart LR
+    A[Training split] --> B[Balanced logistic regression]
+    B --> C[Calibration probabilities]
+    C --> D[Platt sigmoid calibration]
+    D --> E[Calibration threshold grid]
+    E --> F[Select best analytical F1 threshold]
+    F --> G[One-time untouched-test evaluation]

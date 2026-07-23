@@ -1,0 +1,6 @@
+%% Editable source for docs/architecture/03_temporal_split_design.svg
+%% Corresponds to the "Temporal Split Design" diagram in README.md
+flowchart LR
+    A[Rows sorted by issue_d] --> B[Earlier 60 percent: training]
+    B --> C[Middle 20 percent: calibration and threshold selection]
+    C --> D[Latest 20 percent: untouched final test]

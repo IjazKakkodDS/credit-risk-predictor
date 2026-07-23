@@ -1,0 +1,11 @@
+%% Editable source for docs/architecture/02_validation_lifecycle.svg
+%% Corresponds to the "Validation Lifecycle" diagram in README.md
+flowchart TD
+    A[Load local ignored source] --> B[Map resolved target outcomes]
+    B --> C[Apply feature policy]
+    C --> D[Create ordered partitions]
+    D --> E[Fit preprocessing and balanced model]
+    E --> F[Fit probability calibrator]
+    F --> G[Select analytical threshold]
+    G --> H[Evaluate untouched test]
+    H --> I[Generate plots, metrics, segments, and provenance]

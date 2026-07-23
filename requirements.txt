@@ -1,12 +1,18 @@
+# Active CR-3 dependencies: imported by scripts/train_credit_risk_model.py,
+# scripts/run_scale_benchmarks.py, and scripts/benchmark_inference.py.
+matplotlib==3.10.1
+numpy==2.2.6
+pandas==2.2.3
+psutil==7.0.0
+scikit-learn==1.6.1
+
+# Legacy/unused scaffold dependencies: not imported by the canonical CR-3
+# path. Retained only for the src/components/ experimentation scaffolding
+# that README.md discloses as not the source of committed CR-3 evidence.
 catboost==1.2.7
 dill==0.3.9
 Flask==3.1.0
 gunicorn==23.0.0
-matplotlib==3.10.1
-numpy==2.2.6
 optuna
-pandas==2.2.3
-psutil==7.0.0
-scikit-learn==1.6.1
 seaborn==0.13.2
 xgboost==2.1.3

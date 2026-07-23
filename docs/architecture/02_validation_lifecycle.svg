@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 490" width="100%" role="img" aria-labelledby="svgTitle svgDesc">
+  <title id="svgTitle">Validation Lifecycle</title>
+  <desc id="svgDesc">CR-3 validation lifecycle: load the local ignored source, map resolved target outcomes, apply the feature policy, create ordered temporal partitions, fit preprocessing and a balanced model, fit the probability calibrator, select an analytical threshold on the calibration split, evaluate the untouched test split once, and generate plots, metrics, segments, and provenance.</desc>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <style>
+    .bg { fill:#ffffff; }
+    .node { fill:#f8fafc; stroke:#2563eb; stroke-width:1.5; }
+    .label { font-family: Arial, Helvetica, sans-serif; font-size:13px; fill:#1e293b; text-anchor:middle; }
+    .edge { stroke:#475569; stroke-width:2; fill:none; marker-end:url(#arrowhead); }
+  </style>
+  <rect class="bg" x="0" y="0" width="880" height="490"/>
+
+  <!-- edges -->
+  <line class="edge" x1="280" y1="75" x2="318" y2="75"/>
+  <line class="edge" x1="560" y1="75" x2="598" y2="75"/>
+  <line class="edge" x1="720" y1="110" x2="720" y2="208"/>
+  <line class="edge" x1="600" y1="245" x2="562" y2="245"/>
+  <line class="edge" x1="320" y1="245" x2="282" y2="245"/>
+  <line class="edge" x1="160" y1="280" x2="160" y2="378"/>
+  <line class="edge" x1="280" y1="415" x2="318" y2="415"/>
+  <line class="edge" x1="560" y1="415" x2="598" y2="415"/>
+
+  <!-- nodes -->
+  <rect class="node" x="40" y="40" width="240" height="70" rx="10"/>
+  <text class="label" x="160" y="64">Load local ignored</text>
+  <text class="label" x="160" y="80">source</text>
+
+  <rect class="node" x="320" y="40" width="240" height="70" rx="10"/>
+  <text class="label" x="440" y="64">Map resolved target</text>
+  <text class="label" x="440" y="80">outcomes</text>
+
+  <rect class="node" x="600" y="40" width="240" height="70" rx="10"/>
+  <text class="label" x="720" y="79">Apply feature policy</text>
+
+  <rect class="node" x="600" y="210" width="240" height="70" rx="10"/>
+  <text class="label" x="720" y="234">Create ordered</text>
+  <text class="label" x="720" y="250">partitions</text>
+
+  <rect class="node" x="320" y="210" width="240" height="70" rx="10"/>
+  <text class="label" x="440" y="234">Fit preprocessing and</text>
+  <text class="label" x="440" y="250">balanced model</text>
+
+  <rect class="node" x="40" y="210" width="240" height="70" rx="10"/>
+  <text class="label" x="160" y="234">Fit probability</text>
+  <text class="label" x="160" y="250">calibrator</text>
+
+  <rect class="node" x="40" y="380" width="240" height="70" rx="10"/>
+  <text class="label" x="160" y="404">Select analytical</text>
+  <text class="label" x="160" y="420">threshold</text>
+
+  <rect class="node" x="320" y="380" width="240" height="70" rx="10"/>
+  <text class="label" x="440" y="419">Evaluate untouched test</text>
+
+  <rect class="node" x="600" y="380" width="240" height="70" rx="10"/>
+  <text class="label" x="720" y="404">Generate plots,</text>
+  <text class="label" x="720" y="420">metrics, segments,</text>
+  <text class="label" x="720" y="436">and provenance</text>
+</svg>

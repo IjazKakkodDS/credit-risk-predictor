@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 300" width="100%" role="img" aria-labelledby="svgTitle svgDesc">
+  <title id="svgTitle">Calibration and Threshold Flow</title>
+  <desc id="svgDesc">From the training split, a balanced logistic regression produces calibration probabilities, which Platt sigmoid calibration converts into a calibration threshold grid. The best analytical F1 threshold is selected on the calibration split, then evaluated once on the untouched test split.</desc>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#475569"/>
+    </marker>
+  </defs>
+  <style>
+    .bg { fill:#ffffff; }
+    .node { fill:#f8fafc; stroke:#2563eb; stroke-width:1.5; }
+    .label { font-family: Arial, Helvetica, sans-serif; font-size:13px; fill:#1e293b; text-anchor:middle; }
+    .edge { stroke:#475569; stroke-width:2; fill:none; marker-end:url(#arrowhead); }
+  </style>
+  <rect class="bg" x="0" y="0" width="1080" height="300"/>
+
+  <!-- edges -->
+  <line class="edge" x1="260" y1="70" x2="298" y2="70"/>
+  <line class="edge" x1="520" y1="70" x2="558" y2="70"/>
+  <line class="edge" x1="780" y1="70" x2="818" y2="70"/>
+  <line class="edge" x1="930" y1="100" x2="930" y2="198"/>
+  <line class="edge" x1="818" y1="230" x2="782" y2="230"/>
+  <line class="edge" x1="558" y1="230" x2="522" y2="230"/>
+
+  <!-- nodes -->
+  <rect class="node" x="40" y="40" width="220" height="60" rx="10"/>
+  <text class="label" x="150" y="75">Training split</text>
+
+  <rect class="node" x="300" y="40" width="220" height="60" rx="10"/>
+  <text class="label" x="410" y="64">Balanced logistic</text>
+  <text class="label" x="410" y="80">regression</text>
+
+  <rect class="node" x="560" y="40" width="220" height="60" rx="10"/>
+  <text class="label" x="670" y="64">Calibration</text>
+  <text class="label" x="670" y="80">probabilities</text>
+
+  <rect class="node" x="820" y="40" width="220" height="60" rx="10"/>
+  <text class="label" x="930" y="64">Platt sigmoid</text>
+  <text class="label" x="930" y="80">calibration</text>
+
+  <rect class="node" x="820" y="200" width="220" height="60" rx="10"/>
+  <text class="label" x="930" y="224">Calibration threshold</text>
+  <text class="label" x="930" y="240">grid</text>
+
+  <rect class="node" x="560" y="200" width="220" height="60" rx="10"/>
+  <text class="label" x="670" y="224">Select best analytical</text>
+  <text class="label" x="670" y="240">F1 threshold</text>
+
+  <rect class="node" x="300" y="200" width="220" height="60" rx="10"/>
+  <text class="label" x="410" y="224">One-time untouched-test</text>
+  <text class="label" x="410" y="240">evaluation</text>
+</svg>

@@ -1,0 +1,12 @@
+%% Editable source for docs/architecture/06_artifact_provenance_flow.svg
+%% Corresponds to the "Artifact and Provenance Flow" diagram in README.md
+flowchart LR
+    A[Training command] --> B[Model and preprocessor]
+    A --> C[Metrics and plots]
+    A --> D[Split and segment reports]
+    A --> E[Environment and source fingerprint]
+    B --> F[SHA-256 checksums]
+    C --> F
+    D --> F
+    E --> G[Provenance report]
+    F --> G

@@ -1,0 +1,10 @@
+%% Editable source for docs/architecture/01_system_context.svg
+%% Corresponds to the "System Context" diagram in README.md
+flowchart LR
+    A[Loan application data] --> B[Feature availability policy]
+    B --> C[Leakage-screened preprocessing]
+    C --> D[Model training]
+    D --> E[Probability calibration]
+    E --> F[Threshold analysis]
+    F --> G[Validation and benchmark reports]
+    G --> H[Analyst or risk reviewer]

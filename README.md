@@ -121,41 +121,17 @@ independently approve, reject, or price a loan.
 
 ## System Context
 
-```mermaid
-flowchart LR
-    A[Loan application data] --> B[Feature availability policy]
-    B --> C[Leakage-screened preprocessing]
-    C --> D[Model training]
-    D --> E[Probability calibration]
-    E --> F[Threshold analysis]
-    F --> G[Validation and benchmark reports]
-    G --> H[Analyst or risk reviewer]
-```
+![System Context: loan application data flows through the feature availability policy, leakage-screened preprocessing, model training, probability calibration, and threshold analysis to validation and benchmark reports reviewed by an analyst or risk reviewer.](docs/architecture/01_system_context.svg)
 
 ## Architecture
 
 ### Validation Lifecycle
 
-```mermaid
-flowchart TD
-    A[Load local ignored source] --> B[Map resolved target outcomes]
-    B --> C[Apply feature policy]
-    C --> D[Create ordered partitions]
-    D --> E[Fit preprocessing and balanced model]
-    E --> F[Fit probability calibrator]
-    F --> G[Select analytical threshold]
-    G --> H[Evaluate untouched test]
-    H --> I[Generate plots, metrics, segments, and provenance]
-```
+![Validation Lifecycle: load the local ignored source, map resolved target outcomes, apply the feature policy, create ordered partitions, fit preprocessing and a balanced model, fit the probability calibrator, select an analytical threshold, evaluate the untouched test split, and generate plots, metrics, segments, and provenance.](docs/architecture/02_validation_lifecycle.svg)
 
 ### Temporal Split Design
 
-```mermaid
-flowchart LR
-    A[Rows sorted by issue_d] --> B[Earlier 60 percent: training]
-    B --> C[Middle 20 percent: calibration and threshold selection]
-    C --> D[Latest 20 percent: untouched final test]
-```
+![Temporal Split Design: rows sorted by issue date are allocated to the earlier 60 percent for training, the middle 20 percent for calibration and threshold selection, and the latest 20 percent as the untouched final test.](docs/architecture/03_temporal_split_design.svg)
 
 The canonical 100K prefix spans October through December 2015. Both calibration
 and test rows fall within December 2015, so this is ordered validation rather
@@ -163,43 +139,15 @@ than strong multi-vintage evidence.
 
 ### Calibration and Threshold Flow
 
-```mermaid
-flowchart LR
-    A[Training split] --> B[Balanced logistic regression]
-    B --> C[Calibration probabilities]
-    C --> D[Platt sigmoid calibration]
-    D --> E[Calibration threshold grid]
-    E --> F[Select best analytical F1 threshold]
-    F --> G[One-time untouched-test evaluation]
-```
+![Calibration and Threshold Flow: the training split feeds a balanced logistic regression, producing calibration probabilities that Platt sigmoid calibration converts into a calibration threshold grid, from which the best analytical F1 threshold is selected and evaluated once on the untouched test split.](docs/architecture/04_calibration_threshold_flow.svg)
 
 ### Scale Benchmark Flow
 
-```mermaid
-flowchart LR
-    A[Requested scale ladder] --> B[100K run]
-    A --> C[500K run]
-    A --> D[1M run]
-    B --> E[Runtime, memory, metrics]
-    C --> E
-    D --> E
-    E --> F[Scale benchmark JSON and Markdown]
-```
+![Scale Benchmark Flow: the requested scale ladder runs 100K, 500K, and 1M row training stages, each recording runtime, memory, and metrics, which are combined into the scale benchmark JSON and Markdown reports.](docs/architecture/05_scale_benchmark_flow.svg)
 
 ### Artifact and Provenance Flow
 
-```mermaid
-flowchart LR
-    A[Training command] --> B[Model and preprocessor]
-    A --> C[Metrics and plots]
-    A --> D[Split and segment reports]
-    A --> E[Environment and source fingerprint]
-    B --> F[SHA-256 checksums]
-    C --> F
-    D --> F
-    E --> G[Provenance report]
-    F --> G
-```
+![Artifact and Provenance Flow: the training command produces the model and preprocessor, metrics and plots, split and segment reports, and the environment and source fingerprint. The model, metrics, and split artifacts feed SHA-256 checksums, and both the checksums and the environment and source fingerprint feed the provenance report.](docs/architecture/06_artifact_provenance_flow.svg)
 
 ## Model Validation Summary
 

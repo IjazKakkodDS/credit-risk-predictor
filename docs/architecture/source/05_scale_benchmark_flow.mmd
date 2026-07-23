@@ -1,0 +1,10 @@
+%% Editable source for docs/architecture/05_scale_benchmark_flow.svg
+%% Corresponds to the "Scale Benchmark Flow" diagram in README.md
+flowchart LR
+    A[Requested scale ladder] --> B[100K run]
+    A --> C[500K run]
+    A --> D[1M run]
+    B --> E[Runtime, memory, metrics]
+    C --> E
+    D --> E
+    E --> F[Scale benchmark JSON and Markdown]
