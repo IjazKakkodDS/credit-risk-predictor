@@ -9,7 +9,9 @@ scikit-learn==1.6.1
 # Legacy/unused scaffold dependencies: not imported by the canonical CR-3
 # path. Retained only for the src/components/ experimentation scaffolding
 # that README.md discloses as not the source of committed CR-3 evidence.
-catboost==1.2.7
+# catboost removed: pinned numpy<2.0, conflicting with numpy==2.2.6 above,
+# and confirmed unused (model_trainer.py that imports it is never imported
+# by any test, script, or entry point).
 dill==0.3.9
 Flask==3.1.0
 gunicorn==23.0.0
