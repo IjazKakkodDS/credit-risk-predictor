@@ -1,94 +1,105 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 780" width="100%" role="img" aria-labelledby="svgTitle svgDesc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 800" width="100%" role="img" aria-labelledby="svgTitle svgDesc">
   <title id="svgTitle">Legacy Boundary Map</title>
   <desc id="svgDesc">Distinguishes the active, canonical CR-3 evidence path (scripts/train_credit_risk_model.py, sklearn preprocessing, balanced logistic regression, Platt calibration, calibration-only threshold selection, untouched test evaluation, and the generated reports and artifacts) from retained legacy scaffolding (src/components/model_trainer.py, the Optuna helper in src/utils.py, src/pipeline/predict_pipeline.py, static/, and unused legacy requirements such as xgboost, catboost, optuna, Flask, and gunicorn) that is disclosed in the README as not the source of committed CR-3 evidence. Neither path represents a deployed or production-serving system.</desc>
   <defs>
-    <marker id="arrowhead" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0,0 L8,4 L0,8 Z" fill="#475569"/>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
+      <path d="M0,0 L9,4.5 L0,9 Z" fill="#4338ca"/>
     </marker>
   </defs>
   <style>
     .bg { fill:#ffffff; }
-    .activeNode { fill:#f8fafc; stroke:#2563eb; stroke-width:1.5; }
-    .legacyNode { fill:#f1f5f9; stroke:#94a3b8; stroke-width:1.5; stroke-dasharray:6,4; }
+    .titleBand { fill:#1e293b; }
+    .titleText { font-family: Arial, Helvetica, sans-serif; font-size:19px; font-weight:bold; fill:#ffffff; text-anchor:middle; }
+    .subtitleText { font-family: Arial, Helvetica, sans-serif; font-size:11.5px; fill:#cbd5e1; text-anchor:middle; }
+    .zoneActive { fill:#eef2ff; stroke:#c7d2fe; stroke-width:1.25; stroke-dasharray:4,3; }
+    .zoneLegacy { fill:#fff7ed; stroke:#fed7aa; stroke-width:1.25; stroke-dasharray:4,3; }
+    .zoneLabelActive { font-family: Arial, Helvetica, sans-serif; font-size:13px; font-weight:bold; fill:#4338ca; }
+    .zoneSubActive { font-family: Arial, Helvetica, sans-serif; font-size:10.5px; fill:#4338ca; }
+    .zoneLabelLegacy { font-family: Arial, Helvetica, sans-serif; font-size:13px; font-weight:bold; fill:#c2410c; }
+    .zoneSubLegacy { font-family: Arial, Helvetica, sans-serif; font-size:10.5px; fill:#c2410c; }
+    .activeNode { fill:#ffffff; stroke:#4338ca; stroke-width:1.75; }
+    .legacyNode { fill:#ffffff; stroke:#c2410c; stroke-width:1.5; stroke-dasharray:6,4; }
     .activeLabel { font-family: Arial, Helvetica, sans-serif; font-size:12px; fill:#1e293b; text-anchor:middle; }
-    .legacyLabel { font-family: Arial, Helvetica, sans-serif; font-size:12px; fill:#64748b; text-anchor:middle; }
-    .headerActive { font-family: Arial, Helvetica, sans-serif; font-size:15px; font-weight:bold; fill:#1e293b; text-anchor:middle; }
-    .headerLegacy { font-family: Arial, Helvetica, sans-serif; font-size:15px; font-weight:bold; fill:#64748b; text-anchor:middle; }
-    .subActive { font-family: Arial, Helvetica, sans-serif; font-size:11px; fill:#2563eb; text-anchor:middle; }
-    .subLegacy { font-family: Arial, Helvetica, sans-serif; font-size:11px; fill:#94a3b8; text-anchor:middle; }
-    .edge { stroke:#475569; stroke-width:2; fill:none; marker-end:url(#arrowhead); }
+    .legacyLabel { font-family: Arial, Helvetica, sans-serif; font-size:12px; fill:#78350f; text-anchor:middle; }
+    .edge { stroke:#4338ca; stroke-width:2; fill:none; marker-end:url(#arrow); }
     .divider { stroke:#94a3b8; stroke-width:1.5; stroke-dasharray:5,5; }
     .dividerLabel { font-family: Arial, Helvetica, sans-serif; font-size:11px; fill:#64748b; text-anchor:middle; }
     .caption { font-family: Arial, Helvetica, sans-serif; font-size:12px; fill:#334155; text-anchor:middle; }
   </style>
-  <rect class="bg" x="0" y="0" width="900" height="780"/>
+  <rect class="bg" x="0" y="0" width="900" height="800"/>
 
-  <!-- lane headers -->
-  <text class="headerActive" x="195" y="35">Active CR-3 Evidence Path</text>
-  <text class="subActive" x="195" y="55">(canonical, tested, CI-verified)</text>
+  <rect class="titleBand" x="0" y="0" width="900" height="70"/>
+  <text class="titleText" x="450" y="32">Legacy Boundary Map</text>
+  <text class="subtitleText" x="450" y="54">No evidence link to legacy scaffolding, neither path is deployed</text>
 
-  <text class="headerLegacy" x="705" y="35">Legacy Scaffolding</text>
-  <text class="subLegacy" x="705" y="55">(retained, disclaimed, not CR-3 evidence)</text>
+  <!-- zones -->
+  <rect class="zoneActive" x="25" y="78" width="340" height="670" rx="8"/>
+  <text class="zoneLabelActive" x="35" y="94">ACTIVE CR-3 EVIDENCE PATH</text>
+  <text class="zoneSubActive" x="35" y="108">(canonical, tested, CI-verified)</text>
+
+  <rect class="zoneLegacy" x="535" y="78" width="340" height="670" rx="8"/>
+  <text class="zoneLabelLegacy" x="545" y="94">LEGACY SCAFFOLDING</text>
+  <text class="zoneSubLegacy" x="545" y="108">(retained, disclaimed, not CR-3 evidence)</text>
 
   <!-- divider -->
-  <line class="divider" x1="450" y1="80" x2="450" y2="716"/>
-  <rect x="380" y="383" width="140" height="32" fill="#ffffff"/>
-  <text class="dividerLabel" x="450" y="396">No evidence link</text>
-  <text class="dividerLabel" x="450" y="411">between paths</text>
+  <line class="divider" x1="450" y1="78" x2="450" y2="748"/>
+  <rect x="380" y="397" width="140" height="32" fill="#ffffff"/>
+  <text class="dividerLabel" x="450" y="410">No evidence link</text>
+  <text class="dividerLabel" x="450" y="425">between paths</text>
 
   <!-- lane 1: active CR-3 evidence path (sequential chain) -->
-  <line class="edge" x1="195" y1="146" x2="195" y2="168"/>
-  <line class="edge" x1="195" y1="226" x2="195" y2="248"/>
-  <line class="edge" x1="195" y1="306" x2="195" y2="328"/>
-  <line class="edge" x1="195" y1="386" x2="195" y2="408"/>
-  <line class="edge" x1="195" y1="466" x2="195" y2="488"/>
-  <line class="edge" x1="195" y1="546" x2="195" y2="568"/>
-  <line class="edge" x1="195" y1="626" x2="195" y2="648"/>
+  <line class="edge" x1="195" y1="174" x2="195" y2="196"/>
+  <line class="edge" x1="195" y1="254" x2="195" y2="276"/>
+  <line class="edge" x1="195" y1="334" x2="195" y2="356"/>
+  <line class="edge" x1="195" y1="414" x2="195" y2="436"/>
+  <line class="edge" x1="195" y1="494" x2="195" y2="516"/>
+  <line class="edge" x1="195" y1="574" x2="195" y2="596"/>
+  <line class="edge" x1="195" y1="654" x2="195" y2="676"/>
 
-  <rect class="activeNode" x="40" y="90" width="310" height="56" rx="10"/>
-  <text class="activeLabel" x="195" y="122">scripts/train_credit_risk_model.py</text>
+  <rect class="activeNode" x="40" y="118" width="310" height="56" rx="10"/>
+  <text class="activeLabel" x="195" y="150">scripts/train_credit_risk_model.py</text>
 
-  <rect class="activeNode" x="40" y="170" width="310" height="56" rx="10"/>
-  <text class="activeLabel" x="195" y="202">sklearn preprocessing</text>
+  <rect class="activeNode" x="40" y="198" width="310" height="56" rx="10"/>
+  <text class="activeLabel" x="195" y="230">sklearn preprocessing</text>
 
-  <rect class="activeNode" x="40" y="250" width="310" height="56" rx="10"/>
-  <text class="activeLabel" x="195" y="282">balanced LogisticRegression</text>
+  <rect class="activeNode" x="40" y="278" width="310" height="56" rx="10"/>
+  <text class="activeLabel" x="195" y="310">balanced LogisticRegression</text>
 
-  <rect class="activeNode" x="40" y="330" width="310" height="56" rx="10"/>
-  <text class="activeLabel" x="195" y="362">Platt calibration</text>
+  <rect class="activeNode" x="40" y="358" width="310" height="56" rx="10"/>
+  <text class="activeLabel" x="195" y="390">Platt calibration</text>
 
-  <rect class="activeNode" x="40" y="410" width="310" height="56" rx="10"/>
-  <text class="activeLabel" x="195" y="442">calibration-only threshold selection</text>
+  <rect class="activeNode" x="40" y="438" width="310" height="56" rx="10"/>
+  <text class="activeLabel" x="195" y="470">calibration-only threshold selection</text>
 
-  <rect class="activeNode" x="40" y="490" width="310" height="56" rx="10"/>
-  <text class="activeLabel" x="195" y="522">untouched test evaluation</text>
+  <rect class="activeNode" x="40" y="518" width="310" height="56" rx="10"/>
+  <text class="activeLabel" x="195" y="550">untouched test evaluation</text>
 
-  <rect class="activeNode" x="40" y="570" width="310" height="56" rx="10"/>
-  <text class="activeLabel" x="195" y="602">reports/model_validation/</text>
+  <rect class="activeNode" x="40" y="598" width="310" height="56" rx="10"/>
+  <text class="activeLabel" x="195" y="630">reports/model_validation/</text>
 
-  <rect class="activeNode" x="40" y="650" width="310" height="56" rx="10"/>
-  <text class="activeLabel" x="195" y="672">artifact/model.pkl and</text>
-  <text class="activeLabel" x="195" y="688">artifact/preprocessor.pkl</text>
+  <rect class="activeNode" x="40" y="678" width="310" height="56" rx="10"/>
+  <text class="activeLabel" x="195" y="700">artifact/model.pkl and</text>
+  <text class="activeLabel" x="195" y="716">artifact/preprocessor.pkl</text>
 
   <!-- lane 2: legacy scaffolding (disclosed set, no flow arrows) -->
-  <rect class="legacyNode" x="550" y="90" width="310" height="68" rx="10"/>
-  <text class="legacyLabel" x="705" y="128">src/components/model_trainer.py</text>
+  <rect class="legacyNode" x="550" y="118" width="310" height="68" rx="10"/>
+  <text class="legacyLabel" x="705" y="156">src/components/model_trainer.py</text>
 
-  <rect class="legacyNode" x="550" y="227" width="310" height="68" rx="10"/>
-  <text class="legacyLabel" x="705" y="265">src/utils.py Optuna helper</text>
+  <rect class="legacyNode" x="550" y="255" width="310" height="68" rx="10"/>
+  <text class="legacyLabel" x="705" y="293">src/utils.py Optuna helper</text>
 
-  <rect class="legacyNode" x="550" y="364" width="310" height="68" rx="10"/>
-  <text class="legacyLabel" x="705" y="402">src/pipeline/predict_pipeline.py</text>
+  <rect class="legacyNode" x="550" y="392" width="310" height="68" rx="10"/>
+  <text class="legacyLabel" x="705" y="430">src/pipeline/predict_pipeline.py</text>
 
-  <rect class="legacyNode" x="550" y="501" width="310" height="68" rx="10"/>
-  <text class="legacyLabel" x="705" y="539">static/</text>
+  <rect class="legacyNode" x="550" y="529" width="310" height="68" rx="10"/>
+  <text class="legacyLabel" x="705" y="567">static/</text>
 
-  <rect class="legacyNode" x="550" y="638" width="310" height="68" rx="10"/>
-  <text class="legacyLabel" x="705" y="660">Legacy requirements entries:</text>
-  <text class="legacyLabel" x="705" y="675">xgboost, catboost, optuna,</text>
-  <text class="legacyLabel" x="705" y="690">Flask, gunicorn</text>
+  <rect class="legacyNode" x="550" y="666" width="310" height="68" rx="10"/>
+  <text class="legacyLabel" x="705" y="688">Legacy requirements entries:</text>
+  <text class="legacyLabel" x="705" y="703">xgboost, catboost, optuna,</text>
+  <text class="legacyLabel" x="705" y="718">Flask, gunicorn</text>
 
   <!-- caption -->
-  <text class="caption" x="450" y="745">Neither lane represents a deployed or production-serving system.</text>
+  <text class="caption" x="450" y="770">Neither lane represents a deployed or production-serving system.</text>
 </svg>
