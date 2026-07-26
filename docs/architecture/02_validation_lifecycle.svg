@@ -1,82 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 580" width="100%" role="img" aria-labelledby="svgTitle svgDesc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 512" width="100%" role="img" aria-labelledby="svgTitle svgDesc">
   <title id="svgTitle">Validation Lifecycle</title>
   <desc id="svgDesc">CR-3 validation lifecycle: load the local ignored source, map resolved target outcomes, apply the feature policy, create ordered temporal partitions, fit preprocessing and a balanced model, fit the probability calibrator, select an analytical threshold on the calibration split, evaluate the untouched test split once, and generate plots, metrics, segments, and provenance.</desc>
   <defs>
-    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7.5" refY="4.5" orient="auto" markerUnits="userSpaceOnUse">
-      <path d="M0,0 L9,4.5 L0,9 Z" fill="#4338ca"/>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <polygon points="0,0 10,5 0,10" fill="#475569"/>
     </marker>
   </defs>
   <style>
-    .bg { fill:#ffffff; }
-    .titleBand { fill:#1e293b; }
-    .titleText { font-family: Arial, Helvetica, sans-serif; font-size:19px; font-weight:bold; fill:#ffffff; text-anchor:middle; }
-    .subtitleText { font-family: Arial, Helvetica, sans-serif; font-size:11.5px; fill:#cbd5e1; text-anchor:middle; }
-    .zone { fill:#f8fafc; stroke:#e2e8f0; stroke-width:1.25; stroke-dasharray:4,3; }
-    .zoneLabel { font-family: Arial, Helvetica, sans-serif; font-size:11px; font-weight:bold; fill:#475569; }
-    .nodeProcess { fill:#ffffff; stroke:#4338ca; stroke-width:1.75; }
-    .nodeProtected { fill:#eef2ff; stroke:#4338ca; stroke-width:1.75; }
-    .nodeArtifact { fill:#ffffff; stroke:#64748b; stroke-width:1.5; }
-    .label { font-family: Arial, Helvetica, sans-serif; font-size:12.5px; fill:#1e293b; text-anchor:middle; }
-    .edge { stroke:#4338ca; stroke-width:2; fill:none; marker-end:url(#arrow); }
+    .lbl { font-family: 'Segoe UI','Helvetica Neue',Arial,sans-serif; }
+    .zoneLabel { font-size:10px; font-weight:700; letter-spacing:1.4px; }
+    .nodeTitle { font-size:13px; font-weight:600; text-anchor:middle; }
+    .nodeSub { font-size:10.5px; opacity:0.85; text-anchor:middle; }
+    .noteText { font-size:11.5px; fill:#475569; text-anchor:middle; }
   </style>
-  <rect class="bg" x="0" y="0" width="880" height="580"/>
-
-  <rect class="titleBand" x="0" y="0" width="880" height="70"/>
-  <text class="titleText" x="440" y="32">Validation Lifecycle</text>
-  <text class="subtitleText" x="440" y="54">Nine-step CR-3 training and evidence generation pipeline</text>
+  <rect x="0" y="0" width="880" height="512" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+  <rect x="0" y="0" width="880" height="56" rx="10" fill="#0F172A"/>
+  <rect x="0" y="44" width="880" height="12" fill="#0F172A"/>
+  <text class="lbl" x="440" y="35" text-anchor="middle" font-size="19" font-weight="700" fill="#F1F5F9">Validation Lifecycle</text>
 
   <!-- zones -->
-  <rect class="zone" x="25" y="98" width="830" height="116" rx="8"/>
-  <text class="zoneLabel" x="35" y="113">DATA LOADING &amp; FEATURE POLICY</text>
-  <rect class="zone" x="25" y="268" width="830" height="116" rx="8"/>
-  <text class="zoneLabel" x="35" y="283">PARTITIONING &amp; MODEL FIT</text>
-  <rect class="zone" x="25" y="438" width="830" height="116" rx="8"/>
-  <text class="zoneLabel" x="35" y="453">THRESHOLD, TEST &amp; EVIDENCE</text>
+  <rect x="15" y="76" width="850" height="106" rx="6" fill="#EFF6FF"/>
+  <text class="lbl zoneLabel" x="30" y="95" fill="#1D4ED8">DATA LOADING &amp; FEATURE POLICY</text>
+  <rect x="15" y="202" width="850" height="106" rx="6" fill="#F5F3FF"/>
+  <text class="lbl zoneLabel" x="30" y="221" fill="#6D28D9">PARTITIONING, MODEL FIT &amp; CALIBRATION</text>
+  <rect x="15" y="328" width="850" height="106" rx="6" fill="#FFF7ED"/>
+  <text class="lbl zoneLabel" x="30" y="347" fill="#B45309">THRESHOLD, TEST &amp; EVIDENCE</text>
 
-  <!-- edges -->
-  <line class="edge" x1="280" y1="165" x2="318" y2="165"/>
-  <line class="edge" x1="560" y1="165" x2="598" y2="165"/>
-  <line class="edge" x1="720" y1="200" x2="720" y2="298"/>
-  <line class="edge" x1="600" y1="335" x2="562" y2="335"/>
-  <line class="edge" x1="320" y1="335" x2="282" y2="335"/>
-  <line class="edge" x1="160" y1="370" x2="160" y2="468"/>
-  <line class="edge" x1="280" y1="505" x2="318" y2="505"/>
-  <line class="edge" x1="560" y1="505" x2="598" y2="505"/>
+  <!-- arrows -->
+  <line x1="285" y1="137" x2="313" y2="137" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="565" y1="137" x2="593" y2="137" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="715" y1="168" x2="715" y2="230" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="595" y1="263" x2="567" y2="263" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="315" y1="263" x2="287" y2="263" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="155" y1="294" x2="155" y2="356" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="285" y1="389" x2="313" y2="389" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <line x1="565" y1="389" x2="593" y2="389" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
 
-  <!-- nodes -->
-  <rect class="nodeProcess" x="40" y="130" width="240" height="70" rx="10"/>
-  <text class="label" x="160" y="154">Load local ignored</text>
-  <text class="label" x="160" y="170">source</text>
+  <!-- row 1 -->
+  <rect x="35" y="106" width="250" height="62" rx="8" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text class="lbl nodeTitle" x="160" y="132" fill="#1E3A8A">Load local ignored source</text>
+  <text class="lbl nodeSub" x="160" y="148" fill="#1E3A8A">Gitignored CSV, not committed</text>
 
-  <rect class="nodeProcess" x="320" y="130" width="240" height="70" rx="10"/>
-  <text class="label" x="440" y="154">Map resolved target</text>
-  <text class="label" x="440" y="170">outcomes</text>
+  <rect x="315" y="106" width="250" height="62" rx="8" fill="#DBEAFE" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text class="lbl nodeTitle" x="440" y="132" fill="#1E3A8A">Map resolved target outcomes</text>
+  <text class="lbl nodeSub" x="440" y="148" fill="#1E3A8A">Charged Off/Default vs Fully Paid</text>
 
-  <rect class="nodeProcess" x="600" y="130" width="240" height="70" rx="10"/>
-  <text class="label" x="720" y="169">Apply feature policy</text>
+  <rect x="595" y="106" width="250" height="62" rx="8" fill="#DDD6FE" stroke="#7C3AED" stroke-width="1.5"/>
+  <text class="lbl nodeTitle" x="720" y="132" fill="#3B0764">Apply feature policy</text>
+  <text class="lbl nodeSub" x="720" y="148" fill="#3B0764">27 application-time inputs</text>
 
-  <rect class="nodeProcess" x="600" y="300" width="240" height="70" rx="10"/>
-  <text class="label" x="720" y="324">Create ordered</text>
-  <text class="label" x="720" y="340">partitions</text>
+  <!-- row 2 -->
+  <rect x="595" y="232" width="250" height="62" rx="8" fill="#DDD6FE" stroke="#7C3AED" stroke-width="1.5"/>
+  <text class="lbl nodeTitle" x="720" y="258" fill="#3B0764">Create ordered partitions</text>
+  <text class="lbl nodeSub" x="720" y="274" fill="#3B0764">60/20/20 split by issue_d</text>
 
-  <rect class="nodeProcess" x="320" y="300" width="240" height="70" rx="10"/>
-  <text class="label" x="440" y="324">Fit preprocessing and</text>
-  <text class="label" x="440" y="340">balanced model</text>
+  <rect x="315" y="232" width="250" height="62" rx="8" fill="#FECACA" stroke="#DC2626" stroke-width="1.5"/>
+  <text class="lbl nodeTitle" x="440" y="257" fill="#7F1D1D">Fit preprocessing and</text>
+  <text class="lbl nodeTitle" x="440" y="273" fill="#7F1D1D">balanced model</text>
 
-  <rect class="nodeProcess" x="40" y="300" width="240" height="70" rx="10"/>
-  <text class="label" x="160" y="324">Fit probability</text>
-  <text class="label" x="160" y="340">calibrator</text>
+  <rect x="35" y="232" width="250" height="62" rx="8" fill="#FED7AA" stroke="#EA580C" stroke-width="1.5"/>
+  <text class="lbl nodeTitle" x="160" y="258" fill="#7C2D12">Fit probability calibrator</text>
+  <text class="lbl nodeSub" x="160" y="274" fill="#7C2D12">Platt sigmoid</text>
 
-  <rect class="nodeProcess" x="40" y="470" width="240" height="70" rx="10"/>
-  <text class="label" x="160" y="494">Select analytical</text>
-  <text class="label" x="160" y="510">threshold</text>
+  <!-- row 3 -->
+  <rect x="35" y="358" width="250" height="62" rx="8" fill="#FED7AA" stroke="#EA580C" stroke-width="1.5"/>
+  <text class="lbl nodeTitle" x="160" y="384" fill="#7C2D12">Select analytical threshold</text>
+  <text class="lbl nodeSub" x="160" y="400" fill="#7C2D12">Best F1 on calibration split</text>
 
-  <rect class="nodeProtected" x="320" y="470" width="240" height="70" rx="10"/>
-  <text class="label" x="440" y="509">Evaluate untouched test</text>
+  <rect x="315" y="358" width="250" height="62" rx="8" fill="#CFFAFE" stroke="#0E7490" stroke-width="1.5"/>
+  <text class="lbl nodeTitle" x="440" y="384" fill="#164E63">Evaluate untouched test</text>
+  <text class="lbl nodeSub" x="440" y="400" fill="#164E63">One-time, ROC-AUC 0.7322</text>
 
-  <rect class="nodeArtifact" x="600" y="470" width="240" height="70" rx="10"/>
-  <text class="label" x="720" y="494">Generate plots,</text>
-  <text class="label" x="720" y="510">metrics, segments,</text>
-  <text class="label" x="720" y="526">and provenance</text>
+  <rect x="595" y="358" width="250" height="62" rx="8" fill="#BBF7D0" stroke="#059669" stroke-width="1.5"/>
+  <text class="lbl nodeTitle" x="720" y="383" fill="#064E3B">Generate plots, metrics,</text>
+  <text class="lbl nodeTitle" x="720" y="399" fill="#064E3B">segments, and provenance</text>
+
+  <!-- boundary note -->
+  <rect x="15" y="454" width="850" height="38" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+  <text class="lbl noteText" x="440" y="477">Nine-step CR-3 training and evidence generation pipeline</text>
 </svg>
