@@ -6,6 +6,9 @@ pandas==2.2.3
 psutil==7.0.0
 scikit-learn==1.6.1
 
+# Test dependency: required by CI's "python -m pytest tests/" step.
+pytest==9.0.3
+
 # Legacy/unused scaffold dependencies: not imported by the canonical CR-3
 # path. Retained only for the src/components/ experimentation scaffolding
 # that README.md discloses as not the source of committed CR-3 evidence.
